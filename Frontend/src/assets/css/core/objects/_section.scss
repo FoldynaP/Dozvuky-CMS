@@ -1,0 +1,39 @@
+.section {
+	position: relative;
+	&--top {
+		padding-top: 60px;
+	}
+	&--top-lg {
+		padding-top: 120px;
+	}
+	&--bottom {
+		margin-bottom: 60px;
+	}
+	&--bg {
+	position: unset;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)),
+    url($imgPath + '/illust/bg/publikum.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top;
+	//box-shadow: 0px 0px 9px 0px rgba(92,92,92,1);
+	padding-top: 60px;
+	padding-bottom: 60px;
+	z-index: 1;
+	}
+	@media ($xlUp) {
+		&--top {
+			padding-top: 80px;
+		}
+		&--top-lg {
+			padding-top: 160px;
+		}
+		&--bottom {
+			margin-bottom: 80px;
+		}
+		&--bg {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+	}
+}

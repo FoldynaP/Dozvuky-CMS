@@ -1,0 +1,25 @@
+.tickets {
+    &__button {
+        text-align: center;
+        margin: 20px 0 40px 0;
+    }
+
+    &__steps {
+        text-align: center;
+        padding: 30px;
+        background-color: #3333;
+        border-radius: 8px;
+    }
+    &__step-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+    }
+
+    @media ($mdUp) {
+        &__button {
+            margin: 40px 0 80px 0;
+        }
+    }
+}

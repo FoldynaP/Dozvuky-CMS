@@ -1,0 +1,52 @@
+.blog {
+    &__social {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__social-item {
+        background-color: #3333;
+        padding: 10px;
+        border-radius: 50%;
+        & .icon-svg {
+            width: 40px;
+            color: $colorText;
+        }
+    }
+    &__text {
+        padding: 30px;
+        background-color: #3333;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    @media ($mdUp) {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        &__social {
+            position: sticky;
+            height: 100%;
+            top: 100px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0;
+            order: 0;
+            gap: 30px;
+        }
+        &__social-item {
+            padding: 24px;
+            & .icon-svg {
+                transition: transform $t, color $t;
+            }
+        }
+        &__text {
+            flex: 0 1 70%;
+        }
+        .hoverevents &__social-item:hover .icon-svg {
+            transform: scale(1.1);
+            color: $colorSecondary;
+        }
+    }
+}

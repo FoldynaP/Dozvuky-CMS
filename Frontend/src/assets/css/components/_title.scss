@@ -1,0 +1,29 @@
+.title {
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+
+    &__text {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        text-align: center;
+    }
+    &__text:before, &__text:after {
+        position: absolute;
+        top: 51%;
+        overflow: hidden;
+        width: 48%;
+        height: 1px;
+        content: '\a0';
+        background-color: $colorWhite;
+        margin-left: 2%;
+    }
+    &__text:before {
+        margin-left: -50%;
+        text-align: right;
+    }
+    @media ($mdUp) {
+        margin-bottom: 32px;
+    }
+}

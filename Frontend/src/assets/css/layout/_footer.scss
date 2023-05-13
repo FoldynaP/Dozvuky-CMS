@@ -1,0 +1,105 @@
+.footer {
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)),url($imgPath + '/illust/bg/footerBg.webp');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+    h4 {
+        font-size: 20px;
+    }
+    p,a,li {
+        font-size: 18px;
+    }
+    &__wrap {
+        color: $colorWhite;
+        margin-bottom: 0;
+        ul {
+            margin-bottom: 0;
+        }
+        li {
+            margin-bottom: 0;
+        }
+    }
+    &__logo {
+        & img {
+            max-width: 160px;
+        }
+    }
+    &__contacts {
+        color: $colorBlack10;
+        h2,h3,h4 {
+            color: $colorBlack10;
+        }
+        ul {
+            li {
+                padding-left: 0;
+                &::before {
+                    color: $colorBlack10;
+                }
+                a {
+                    text-decoration: none;
+                    color: $colorBlack10;
+                }
+            }
+        }
+    }
+    &__contact-logo {
+        max-width: 160px;
+    }
+    &__socials {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 20px;
+    }
+    &__social-link {
+        @extend %reset-anchor;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        padding: 10px;
+        & .icon-svg {
+            color: $colorWhite;
+            width: 30px;
+            transition: all 0.3s;
+        }
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    &__owner {
+        display: flex;
+        gap: 20px;
+    }
+    &__social-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+    &__created {
+        color: $colorBlack40;
+        ul {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    &__copyright {
+        font-size: 14px;
+        color: $colorBlack20;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -60px;
+    }
+    .hoverevents &__social-link:hover {
+        border-color: $colorWhite;
+        background-color: $colorWhite;
+        & .icon-svg {
+            color: $colorSecondary;
+            transition: .3s;
+        }
+    }
+    @media ($mdUp) {
+        padding: 80px 0;
+    }
+}
