@@ -5,7 +5,7 @@ const basePath = {
 	assets: '../',
 	//mvc: '../Edu/wwwroot/', // Change the basePath of new MVC project
 	//mvcStatic: './EON/static/', // Change the basePath of new MVC project
-	customElements: '../CustomElements/wwwroot/edu',
+	//customElements: '../CustomElements/wwwroot/edu',
 };
 
 const src = {
