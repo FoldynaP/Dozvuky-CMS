@@ -103,21 +103,6 @@ function createSassVars(config) {
 	return varsStrings.join('');
 }
 
-// function copyToMvc() {
-// 	fse.emptyDirSync(config.basePath.mvc);
-// 	fse.copySync(path.resolve(__dirname, `../${config.basePath.dest}`), config.basePath.mvc, { overwrite: true });
-// 	fse.emptyDirSync(config.basePath.customElements);
-// 	fse.copySync(path.resolve(__dirname, `../${config.basePath.dest}`), config.basePath.customElements, { overwrite: true });
-// }
-
-// class CopyToMVCPlugin {
-// 	apply(compiler) {
-// 		compiler.hooks.done.tap('CopyToMVCPlugin', (compilation) => {
-// 			copyToMvc();
-// 		});
-// 	}
-// }
-
 function listSvgs(dir) {
 	var items = fs.readdirSync(dir);
 	const files = [];

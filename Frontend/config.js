@@ -3,9 +3,6 @@ const basePath = {
 	src: 'src/',
 	dest: 'dist/',
 	assets: '../',
-	//mvc: '../Edu/wwwroot/', // Change the basePath of new MVC project
-	//mvcStatic: './EON/static/', // Change the basePath of new MVC project
-	//customElements: '../CustomElements/wwwroot/edu',
 };
 
 const src = {
@@ -47,17 +44,6 @@ const webpack = {
 	},
 };
 
-// const browserSync = {
-// 	open: false,
-// 	notify: false,
-// 	reloadThrottle: 1000,
-// 	watch: true,
-// 	startPath: '/tpl',
-// 	server: {
-// 		baseDir: basePath.dest,
-// 	},
-// };
-
 const mediaQueries = {
 	breakpoints: {
 		sm: '480px',
@@ -79,6 +65,5 @@ module.exports = {
 	assets,
 	twigNamespaces,
 	webpack,
-	// browserSync,
 	mediaQueries,
 };

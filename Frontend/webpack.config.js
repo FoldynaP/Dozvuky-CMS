@@ -5,7 +5,6 @@ const config = require('./helpers/getConfig.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const {
 	createSassVars,
-	//CopyToMVCPlugin,
 	iconSvgCssGeneratePlugin,
 	iconSvgCssGeneratePluginBeforeRun,
 } = require('./helpers/webpackConstruct.js');
@@ -105,6 +104,5 @@ module.exports = {
         new CopyPlugin({
 			patterns: [{ from: './src/assets/img', to: 'img' }],
 		}),
-        //new CopyToMVCPlugin(),
     ],
 }
