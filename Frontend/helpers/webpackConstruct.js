@@ -7,73 +7,73 @@ const cheerio = require('cheerio');
 const htmlparser2 = require('htmlparser2');
 const consolidate = require('consolidate');
 
-function resolveTwigEntry() {
-	const twigs = [];
-	const templatesDir = path.resolve(__dirname, '../src/tpl');
-	const viewsDir = path.resolve(__dirname, '../src/tpl/Views');
+// function resolveTwigEntry() {
+// 	const twigs = [];
+// 	const templatesDir = path.resolve(__dirname, '../src/tpl');
+// 	const viewsDir = path.resolve(__dirname, '../src/tpl/Views');
   
-	// Add twig files from templates directory
-	fs.readdirSync(templatesDir).forEach((file) => {
-	  if (file.includes('.twig')) {
-		const nameWithoutExt = file.split('.')[0];
-		const outputPath = path.resolve(__dirname, `../dist`);
+// 	// Add twig files from templates directory
+// 	fs.readdirSync(templatesDir).forEach((file) => {
+// 	  if (file.includes('.twig')) {
+// 		const nameWithoutExt = file.split('.')[0];
+// 		const outputPath = path.resolve(__dirname, `../dist`);
   
-		// Create output directory if it doesn't exist
-		fse.ensureDirSync(outputPath);
+// 		// Create output directory if it doesn't exist
+// 		fse.ensureDirSync(outputPath);
   
-		// Add twig file to webpack entry points
-		twigs.push({
-		  name: nameWithoutExt,
-		  entry: `./src/tpl/${nameWithoutExt}.twig`,
-		  output: {
-			path: outputPath,
-			filename: `${nameWithoutExt}.html`
-		  }
-		});
-	  }
-	});
+// 		// Add twig file to webpack entry points
+// 		twigs.push({
+// 		  name: nameWithoutExt,
+// 		  entry: `./src/tpl/${nameWithoutExt}.twig`,
+// 		  output: {
+// 			path: outputPath,
+// 			filename: `${nameWithoutExt}.html`
+// 		  }
+// 		});
+// 	  }
+// 	});
   
-	// Add twig files from views directory
-	const helperFile = [];
-	fs.readdirSync(viewsDir).forEach((file) => {
-		const nameWithoutExt = file.split('.')[0];
-		const outputPath = path.resolve(__dirname, `../dist/${nameWithoutExt}`);
+// 	// Add twig files from views directory
+// 	const helperFile = [];
+// 	fs.readdirSync(viewsDir).forEach((file) => {
+// 		const nameWithoutExt = file.split('.')[0];
+// 		const outputPath = path.resolve(__dirname, `../dist/${nameWithoutExt}`);
   
-		// 	// Create output directory if it doesn't exist
-		fse.ensureDirSync(outputPath);
-		helperFile.push(file);
-	}
-	);
-	for (file of helperFile) {
-		if (fs.existsSync(path.resolve(__dirname, `../dist/${file}`))) {
-			fs.readdirSync(path.resolve(__dirname, `../src/tpl/Views/${file}`)).forEach((subfile) => {
-				const nameSubfileWithoutExt = subfile.split('.')[0];
-				// Add twig file to webpack entry points
-				twigs.push({
-					name: nameSubfileWithoutExt,
-					entry: `./src/tpl/Views/${file}/${nameSubfileWithoutExt}.twig`,
-					output: {
-					path: path.resolve(__dirname, `../dist/${file}`),
-					filename: `${nameSubfileWithoutExt}.html`
-					}
-				});
-			});
-		}
-	}
+// 		// 	// Create output directory if it doesn't exist
+// 		fse.ensureDirSync(outputPath);
+// 		helperFile.push(file);
+// 	}
+// 	);
+// 	for (file of helperFile) {
+// 		if (fs.existsSync(path.resolve(__dirname, `../dist/${file}`))) {
+// 			fs.readdirSync(path.resolve(__dirname, `../src/tpl/Views/${file}`)).forEach((subfile) => {
+// 				const nameSubfileWithoutExt = subfile.split('.')[0];
+// 				// Add twig file to webpack entry points
+// 				twigs.push({
+// 					name: nameSubfileWithoutExt,
+// 					entry: `./src/tpl/Views/${file}/${nameSubfileWithoutExt}.twig`,
+// 					output: {
+// 					path: path.resolve(__dirname, `../dist/${file}`),
+// 					filename: `${nameSubfileWithoutExt}.html`
+// 					}
+// 				});
+// 			});
+// 		}
+// 	}
   
-	const twigsArr = [];
-	for (tw of twigs) {
-	  twigsArr.push(
-		new HtmlWebpackPlugin({
-		  inject: true,
-		  chunks: [tw.name],
-		  filename: `${tw.output.path}/${tw.output.filename}`,
-		  template: tw.entry,
-		})
-	  );
-	}
-	return twigsArr;
-  }
+// 	const twigsArr = [];
+// 	for (tw of twigs) {
+// 	  twigsArr.push(
+// 		new HtmlWebpackPlugin({
+// 		  inject: true,
+// 		  chunks: [tw.name],
+// 		  filename: `${tw.output.path}/${tw.output.filename}`,
+// 		  template: tw.entry,
+// 		})
+// 	  );
+// 	}
+// 	return twigsArr;
+//   }
 
 function myJsonToSassObject(varName, obj) {
 	if (typeof obj === 'object') {
@@ -233,7 +233,7 @@ class iconSvgCssGeneratePluginBeforeRun {
 }
 
 module.exports = {
-	resolveTwigEntry,
+	//resolveTwigEntry,
 	createSassVars,
 	//CopyToMVCPlugin,
 	iconSvgCssGeneratePlugin,

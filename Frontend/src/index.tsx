@@ -2,4 +2,4 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from './components/App';
 
-ReactDOM.render(<App message="WittCode is cool1YYEWA" />, document.getElementById('root'));
+ReactDOM.render(<App message="WittCode is YEEESSS" />, document.getElementById('root'));

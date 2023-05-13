@@ -21,6 +21,15 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js']
     },
+	output: {
+		path: path.join(__dirname, `/dist`),
+		filename: './js/[name].js',
+		chunkFilename: './js/[name].chunk.js',
+		assetModuleFilename: (pathData) => {
+			const stripped = pathData.filename.replace('src', '');
+			return stripped ? stripped : '[path][name][ext]';
+		},
+	},
     devtool: 'inline-source-map',
 	devServer: {
 		static: {
