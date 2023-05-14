@@ -5,6 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>React App without CRA</title>
+        <script>
+			(function () {
+				var className = document.documentElement.className;
+				className = className.replace('no-js', 'js');
+
+				(function() {
+					var mediaHover = window.matchMedia('(hover: none), (pointer: coarse), (pointer: none)');
+					mediaHover.addListener(function(media) {
+						document.documentElement.classList[media.matches ? 'add' : 'remove']('no-hoverevents');
+						document.documentElement.classList[!media.matches ? 'add' : 'remove']('hoverevents');
+					});
+					className += (mediaHover.matches ? ' no-hoverevents' : ' hoverevents');
+				})();
+
+				// fix iOS zoom issue: https://docs.google.com/document/d/1KclJmXyuuErcvit-kwCC6K2J7dClRef43oyGVCqWxFE/edit#heading=h.sgbqg5nzhvu9
+				var ua = navigator.userAgent.toLowerCase();
+				var isIOS = /ipad|iphone|ipod/.test(ua) && !window.MSStream;
+
+				if (isIOS === true) {
+					var viewportTag = document.querySelector("meta[name=viewport]");
+					viewportTag.setAttribute("content", "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no");
+				}
+
+				document.documentElement.className = className;
+			}());
+		</script>
     </head>
     <body>
         

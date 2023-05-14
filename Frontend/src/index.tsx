@@ -1,5 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from './components/App';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-ReactDOM.render(<App message="WittCode is YEEESSS" />, document.getElementById('root'));
+
+ReactDOM.render(
+  <React.StrictMode>
+       <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);

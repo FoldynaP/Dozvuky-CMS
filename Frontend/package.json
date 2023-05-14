@@ -12,23 +12,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.11.1",
     "typescript": "^4.8.4"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.18.6",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-router": "^5.1.20",
     "ansi-colors": "4.1.3",
     "babel-loader": "^8.2.3",
     "cheerio": "1.0.0-rc.12",
-    "consolidate": "0.16.0",
     "clean-webpack-plugin": "4.0.0",
+    "consolidate": "0.16.0",
     "copy-webpack-plugin": "11.0.0",
     "fancy-log": "2.0.0",
     "html-webpack-plugin": "^5.5.0",
@@ -41,7 +43,7 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0",
-    "webpack-merge": "^5.8.0",
-    "webpack-import-glob-loader": "1.6.3"
+    "webpack-import-glob-loader": "1.6.3",
+    "webpack-merge": "^5.8.0"
   }
 }
