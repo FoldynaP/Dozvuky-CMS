@@ -10,8 +10,8 @@ export default function Image(props:ImageProps) {
   return (
     <figure className="image">
 		<picture>
-			<source srcSet={`../img/illust/${props.image}`}/>
-			<img src={`../img/illust/${props.image}`} alt={props.alt} loading={props.loading}/>
+			<source srcSet={props.image}/>
+			<img src={props.image} alt={props.alt} loading={props.loading}/>
 		</picture>
     </figure>
   )

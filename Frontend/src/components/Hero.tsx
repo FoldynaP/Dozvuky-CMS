@@ -5,22 +5,24 @@ import Button from './core/Button';
 export default function Hero() {
   const SliderData = [
     {
-      image: 'hero/hero1.webp',
+      image: '../img/illust/hero/hero1.webp',
       alt: "Úvodní obrázek festivalu"
     },
     {
-      image: 'hero/hero2.webp',
+      image: '../img/illust/hero/hero2.webp',
       alt: "Úvodní obrázek festivalu"
     },
     {
-      image: 'hero/hero3.webp',
+      image: '../img/illust/hero/hero3.webp',
       alt: "Úvodní obrázek festivalu"
     },
     {
-      image: 'hero/hero4.webp',
+      image: '../img/illust/hero/hero4.webp',
       alt: "Úvodní obrázek festivalu"
     },
   ];
+
+  const style = { "--slide-duration": 8 + "s" } as React.CSSProperties;
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -56,7 +58,7 @@ export default function Hero() {
         </h4>
         <Button link="#listky" text="Chci lístky" icon="ticket" />
       </div>
-      <div className="hero__timeline"></div>
+      <div className="hero__timeline" style={style}></div>
     </div>
   );
 }

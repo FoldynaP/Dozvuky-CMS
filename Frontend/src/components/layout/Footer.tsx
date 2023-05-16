@@ -12,10 +12,7 @@ export default function Footer() {
                 <div className="grid">
                     <div className="grid__col col-4-12@md">
                         <div className="footer__contact-logo">
-                          <Image image="footer/provasodnas.png" alt="fotka publika před podiem" loading="lazy"></Image>
-                            {/* {% include "@components/core/image/image.twig" with { item: {
-                                img: "footer/provasodnas.png"
-                            }} %} */}
+                          <Image image="../img/illust/footer/provasodnas.png" alt="fotka publika před podiem" loading="lazy"></Image>
                         </div>
                         <h4>Spolek Pro Vás od Nás:</h4>
                         <ul>
