@@ -31,6 +31,9 @@
         "videos",
         "audios"
       ]
+    },
+    "blogText": {
+      "type": "richtext"
     }
   }
 }
