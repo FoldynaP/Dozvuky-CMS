@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Kapely from './pages/Kapely';
 import KapelyDetail from './pages/KapelyDetail';
-import Novinky from './pages/Novinky';
+import Novinky from './pages/NovinkyDetail';
 
 //layout
 import Navbar from './components/layout/Navbar';
