@@ -21,6 +21,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/kapely" element={<Kapely />} />
+              <Route path="/kapely/:id" element={<KapelyDetail />} />
             </Routes>
           </main>
           <Footer />

@@ -18,7 +18,7 @@ export default function Homepage() {
     <section className="section section--top section--bottom">
       <div className="container">
       <Title title="Kapely" />
-      {bandData &&
+      {Array.isArray(bandData) &&
         <BandCarousel slides={bandData} options={OPTIONS}/>
       }
       {loadingBands &&

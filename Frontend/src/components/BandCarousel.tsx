@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
+import { Link } from 'react-router-dom'
 import Image from './core/Image'
 import SvgIcon from './core/SvgIcon'
 import {
@@ -55,7 +56,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container carousel-band__container">
           {slides.map((slide, index) => (
-                <a href="#" className="carousel-band__item embla__slide" key={index}>
+                <Link to={`/kapely/${slide.Name}`}  state={{ id: slide.id }} className="carousel-band__item embla__slide" key={index}>
                     <div className="carousel-band__img">
                         <Image image={`http://localhost:1337` + slide.Image.data.attributes.url} alt={slide.alt}/>
                     </div>
@@ -69,7 +70,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                             </span>
                         </div>
                     </div>
-                </a>
+                </Link>
                 ))}
           </div>
         </div>

@@ -1,37 +1,42 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-//Makes cleaner response from strapi api response
-function sanitizeApiResponse(response) {
-  if (!response || !response.data) {
-      return undefined
-  }
-  if (Array.isArray(response.data)) {
-      const sanitized = response.data.reduce(
-          (acc, curr) => {
-              const item = {
-                  id: curr.id,
-                  ...curr.attributes,
-              }
-              acc.push(item)
-              return acc
-          },
-          [],
-      )
-      return sanitized
-  }
-  const sanitized = {
-      id: response.data.id,
-      ...response.data.attributes,
-  }
-  return sanitized
+interface FetchState<T> {
+  loading: boolean;
+  error: any;
+  data: T | null;
 }
 
-//Hook for fetching data from strapi
-const useFetch = (url:string) => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+// Makes cleaner response from strapi api response
+function sanitizeApiResponse<T>(response: any): T | undefined {
+  if (!response || !response.data) {
+    return undefined;
+  }
+  if (Array.isArray(response.data)) {
+    const sanitized = response.data.reduce(
+      (acc: any[], curr: any) => {
+        const item = {
+          id: curr.id,
+          ...curr.attributes,
+        };
+        acc.push(item);
+        return acc;
+      },
+      []
+    );
+    return sanitized as T;
+  }
+  const sanitized = {
+    id: response.data.id,
+    ...response.data.attributes,
+  };
+  return sanitized as T;
+}
+
+// Hook for fetching data from strapi
+const useFetch = <T>(url: string): FetchState<T> => {
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,16 +45,22 @@ const useFetch = (url:string) => {
         const res = await fetch(url);
         const json = await res.json();
 
-        setData(sanitizeApiResponse(json));
+        const sanitizedData = sanitizeApiResponse<T>(json);
+        if (sanitizedData === undefined) {
+          setData(null);
+        } else {
+          setData(sanitizedData);
+        }
         setLoading(false);
       } catch (error) {
         setError(error);
         setLoading(false);
       }
-    }
+    };
     fetchData();
-  }, [url])
-  return  {loading, error, data}
-}
+  }, [url]);
+
+  return { loading, error, data };
+};
 
 export default useFetch;
