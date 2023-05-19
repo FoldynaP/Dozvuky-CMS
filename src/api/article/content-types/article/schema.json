@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "bands",
+  "collectionName": "articles",
   "info": {
-    "singularName": "band",
-    "pluralName": "bands",
-    "displayName": "Band",
-    "description": ""
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article"
   },
   "options": {
     "draftAndPublish": true
@@ -17,34 +16,40 @@
       "required": true,
       "unique": true
     },
-    "Description": {
-      "type": "text",
-      "maxLength": 280
-    },
-    "Image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
+    "Preview": {
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
-    "blogText": {
+    "Description": {
+      "type": "text",
+      "maxLength": 180
+    },
+    "Detail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "BlogText": {
       "type": "richtext"
-    },
-    "mp3": {
-      "type": "string"
-    },
-    "video": {
-      "type": "string"
     },
     "instagram": {
       "type": "string"
     },
     "facebook": {
+      "type": "string"
+    },
+    "youtube": {
       "type": "string"
     }
   }

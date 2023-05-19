@@ -3,32 +3,42 @@ import useFetch from '../hooks/UseFetch';
 import { useParams } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
-import LinkBack from '../components/core/LinkBack';
 import SvgIcon from '../components/core/SvgIcon';
 import MainImage from '../components/MainImage';
-
+import Audio from '../components/Audio';
+import Iframe from '../components/Iframe';
+import BreadCrumbs from '../components/core/BreadCrumbs';
 interface BandProps {
-    id: number;
-    Name: string;
-    Description?: string;
-    Image?: any;
+    id: number,
+    Name: string,
+    Description?: string,
+    Image?: any,
     blogText: any,
-    createdAt: string;
-    publishedAt: string;
-    updatedAt: string;
+    mp3?: string,
+    video?: string,
+    instagram?: string,
+    facebook?: string,
+    youtube?: string,
+    createdAt: string,
+    publishedAt: string,
+    updatedAt: string
 }
 
 export default function KapelaDetail() {
   const location = useLocation();
   const { id } = location.state;
+  console.log(id)
   const { loading, error, data } = useFetch<BandProps>("http://localhost:1337/api/bands/" + id + "?populate=*");
+
+  const breadcrumbs = ["Kapely", data?.Name]
   console.log(data)
 
   return (
     <>
-      <section className="section">
+      <section className="section section--top">
         <div className="container">
-          <LinkBack />
+          <BreadCrumbs path={breadcrumbs} />
+          {/* <LinkBack /> */}
         </div>
       </section>
       <section className="section section--top">
@@ -40,22 +50,42 @@ export default function KapelaDetail() {
         <div className="container">
             <div className="blog">
                 <div className="blog__text">
+                  {data?.blogText ? 
                     <ReactMarkdown className="blog__rich-text">
                       {data?.blogText}
                     </ReactMarkdown>
-                    <div className="blog__audio-section">
-                        <h4>Ukázka z tvorby:</h4>                    
-                    </div>
-                    <h4>Video ukázka:</h4>
-                    <div className="blog__video-section">
-                    </div>
+                  :
+                  <p>Text kapely pro vás připravujeme :-)</p>
+                  }
+                    {data?.mp3 &&
+                      <div className="blog__section">
+                          <h4>Ukázka z tvorby:</h4>
+                          <Audio url={data.mp3}/>                   
+                      </div>
+                    }
+                    {data?.video &&
+                      <div className="blog__section">
+                        <h4>Video ukázka:</h4>
+                        <div className="blog__video">
+                            <Iframe url={data.video}/>
+                        </div>
+                      </div>
+                    }
                 </div>
+                {(data?.instagram || data?.facebook) &&
                 <div className="blog__social">
                     <span>Sociální sítě:</span>
-                    <a target="_blank" href="https://www.facebook.com/375mnm" className="blog__social-item"><SvgIcon svgName={"fb"}></SvgIcon></a>
-                    <a target="_blank" href="https://www.instagram.com/375_m.n.m/" className="blog__social-item"><SvgIcon svgName={"instagram"}></SvgIcon></a>
-                    <a target="_blank" href="https://www.youtube.com/watch?v=_4C7Zr0qL8s&ab_channel=TheAttics" className="blog__social-item"><SvgIcon svgName={"yt"}></SvgIcon></a>
+                    {data?.facebook &&
+                      <a target="_blank" href={data.facebook} className="blog__social-item"><SvgIcon svgName={"fb"}></SvgIcon></a>
+                    }
+                    {data?.instagram &&
+                      <a target="_blank" href={data.instagram} className="blog__social-item"><SvgIcon svgName={"instagram"}></SvgIcon></a>
+                    }
+                    {data?.youtube &&
+                      <a target="_blank" href={data.youtube} className="blog__social-item"><SvgIcon svgName={"yt"}></SvgIcon></a>
+                    }
                 </div>
+                }
             </div>
         </div>
     </section>

@@ -11,6 +11,7 @@
     &__item {
         @extend %reset-anchor;
         min-width: 87%;
+        width: 87%;
         border: 24px solid transparent;
         border-width: 0 0 0 24px;
     }
@@ -29,6 +30,7 @@
     @media ($mdUp) {
         &__item {
             min-width: 33.33%;
+            width: 33.33%;
         }
         &__image {
             overflow: hidden;

@@ -15,10 +15,13 @@ interface CrossRoadProps {
   };
 }
 
+
 export default function CrossRoad({ crossroadData }: CrossRoadProps) {
+  const path = crossroadData.Name.replace(/\s/g, "_");
+  
   return (
     <>
-      <Link to={`/kapely/${crossroadData.Name}`}  state={{ id: crossroadData.id }} className="crossroad">
+      <Link to={`/kapely/${path}`}  state={{ id: crossroadData.id }} className="crossroad">
         <div className="crossroad__img">
           <Image image={`http://localhost:1337` + crossroadData.Image.data.attributes.url} alt="test" />
         </div>

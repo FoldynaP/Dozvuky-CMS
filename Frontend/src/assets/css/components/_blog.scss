@@ -21,10 +21,20 @@
         border-radius: 10px;
         font-size: 20px;
     }
+    &__section {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
     @media ($mdUp) {
         display: flex;
         justify-content: center;
         gap: 40px;
+        &__section {
+            &:not(:last-child) {
+                margin-bottom: 40px;
+            }
+        }
         &__social {
             position: sticky;
             height: 100%;

@@ -11,6 +11,7 @@ const {
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'development',
@@ -36,8 +37,8 @@ module.exports = {
 			directory: path.join(__dirname, 'dist'),
 		},
 		watchFiles: ['src/assets/**/*.scss'],
-
 		hot: true,
+		historyApiFallback: true,
 		devMiddleware: {
 			writeToDisk: true,
 		},
@@ -113,5 +114,9 @@ module.exports = {
         new CopyPlugin({
 			patterns: [{ from: './src/assets/img', to: 'img' }],
 		}),
+		new Dotenv({
+			path: './.env', // Path to your .env file
+			safe: true,
+		  }),
     ],
 }
