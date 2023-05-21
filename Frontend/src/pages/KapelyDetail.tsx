@@ -1,6 +1,5 @@
 import React from 'react';
 import useFetch from '../hooks/UseFetch';
-import { useParams } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import SvgIcon from '../components/core/SvgIcon';
@@ -19,39 +18,33 @@ interface BandProps {
     instagram?: string,
     facebook?: string,
     youtube?: string,
-    createdAt: string,
-    publishedAt: string,
-    updatedAt: string
 }
 
 export default function KapelaDetail() {
   const location = useLocation();
   const { id } = location.state;
-  console.log(id)
   const { loading, error, data } = useFetch<BandProps>("http://localhost:1337/api/bands/" + id + "?populate=*");
 
   const breadcrumbs = ["Kapely", data?.Name]
-  console.log(data)
 
   return (
     <>
-      <section className="section section--top">
-        <div className="container">
-          <BreadCrumbs path={breadcrumbs} />
-          {/* <LinkBack /> */}
-        </div>
-      </section>
-      <section className="section section--top">
-        <div className="container">
-          <MainImage image={data?.Image.data.attributes.url} title={data?.Name} />
-        </div>
+    <section className="section section--top">
+      <div className="container">
+        <BreadCrumbs path={breadcrumbs} />
+      </div>
+    </section>
+    <section className="section section--top">
+      <div className="container">
+        <MainImage image={data?.Image.data.attributes.url} title={data?.Name} />
+      </div>
     </section>
     <section className="section section--top section--bottom">
         <div className="container">
             <div className="blog">
                 <div className="blog__text">
                   {data?.blogText ? 
-                    <ReactMarkdown className="blog__rich-text">
+                    <ReactMarkdown className="rich-text">
                       {data?.blogText}
                     </ReactMarkdown>
                   :

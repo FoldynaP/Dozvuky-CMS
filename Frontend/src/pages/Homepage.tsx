@@ -10,11 +10,25 @@ import Faq from '../components/Faq'
 import BandCarousel from '../components/EmblaCarousel'
 import EmblaCarousel from '../components/EmblaCarousel'
 
+interface FaqData {
+  	id: number,
+    title: string,
+    content: any
+}
 
 export default function Homepage() {
   
   const {loading: loadingBands, error: bandError, data: bandData} = useFetch("http://localhost:1337/api/bands?populate=*");
   const {loading: loadingNews, error: newsError, data: newsData} = useFetch("http://localhost:1337/api/articles?populate=*");
+
+  const { loading: loadingFaqs, error: faqsError, data: fetchFaqsData }: {
+    loading: boolean;
+    error: any;
+    data: FaqData[] | null | undefined;
+  } = useFetch("http://localhost:1337/api/faqs?populate=*");
+  
+  // Handle the case when faqsData is null
+  const faqsData: FaqData[] = fetchFaqsData || [];
   
   const OPTIONS: EmblaOptionsType = {loop:true, align: "start"}
   return (
@@ -81,9 +95,9 @@ export default function Homepage() {
     </section>
     <section className="section section--top section--bottom">
       <div className="container">
-          <Faq></Faq>
-          <Faq></Faq>
-          <Faq></Faq>
+      {faqsData.map((data: any, index: number) => (
+        <Faq faqData={data} key={index} />
+      ))}
       </div>
     </section>
     </>

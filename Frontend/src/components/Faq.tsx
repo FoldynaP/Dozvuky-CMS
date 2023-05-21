@@ -1,8 +1,16 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
-export default function Faq() {
+interface faqsData {
+    faqData: {
+        id: number,
+        Title: string,
+        Content: any
+    }
+}
 
+export default function Faq({faqData}: faqsData) {
     const [faqActive, setFaqActive] = useState(false);
 
     const toggleFaq = () => {
@@ -12,11 +20,13 @@ export default function Faq() {
   return (
 <div className={"faq" + (faqActive ? " is-open" : "")}>
     <div className="faq__btn js-accordion-btn" onClick={toggleFaq}>
-        <h4>Nadpis</h4>
+        <h4>{faqData.Title}</h4>
     </div>
     <div className="faq__content js-accordion-content">
         <div className="faq__body js-accordion-body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur repellat ab. Minima libero porro at, impedit quae accusamus recusandae.
+        <ReactMarkdown className="rich-text">
+            {faqData.Content}
+        </ReactMarkdown>
         </div>
     </div>
 </div>  )

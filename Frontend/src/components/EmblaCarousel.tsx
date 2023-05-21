@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 import BandCard from './BandCard'
-import ArticleCard from './ArticleCard'
+import NewsCard from './NewsCard'
 import {
   DotButton,
   PrevButton,
@@ -57,7 +57,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           <div className="embla__container carousel-band__container">
             {slides.map((slide, index) =>
               articles ? (
-                <ArticleCard data={slide} key={index} />
+                <NewsCard data={slide} key={index} />
               ) : (
                 <BandCard data={slide} key={index} />
               )

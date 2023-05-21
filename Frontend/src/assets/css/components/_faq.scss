@@ -30,9 +30,16 @@
 		}
     }   
     &__content {
-        height: 0;
+        // height: 0;
+        transition: grid-template-rows $t;
+        display: grid;
+        grid-template-rows: 0fr;
+        .faq.is-open & {
+            grid-template-rows: 1fr;
+        }
+    }
+    &__body {
         overflow: hidden;
-        transition: height $t;
     }
     @media ($mdUp) {
         &__btn {

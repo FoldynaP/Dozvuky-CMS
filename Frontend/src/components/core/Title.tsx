@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface titleProps {
-    title: String,
+    title?: String,
 }
 
 export default function Title(props:titleProps) {

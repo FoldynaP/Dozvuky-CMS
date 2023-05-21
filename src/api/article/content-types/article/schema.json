@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article"
+    "displayName": "Article",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,28 +18,30 @@
       "unique": true
     },
     "Preview": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Description": {
       "type": "text",
       "maxLength": 180
     },
     "Detail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "BlogText": {
       "type": "richtext"
@@ -50,6 +53,9 @@
       "type": "string"
     },
     "youtube": {
+      "type": "string"
+    },
+    "video": {
       "type": "string"
     }
   }
