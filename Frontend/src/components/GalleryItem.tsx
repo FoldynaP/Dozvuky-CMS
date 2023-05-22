@@ -12,7 +12,6 @@ interface galleryData {
 
 export default function GalleryItem({galleryData}:galleryData) {
     const url = process.env.REACT_APP_STRAPI_API_URL;
-    console.log(galleryData)
   return (
     <>
       <div className="gallery-item">

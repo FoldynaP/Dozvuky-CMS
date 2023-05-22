@@ -15,19 +15,30 @@ interface galleryItemProps {
 }
 
 export default function GalleryDetail() {
-    const [toggler, setToggler] = useState(false);
-    const [galleryIndex, setGalleryIndex] = useState(0);
-
     const location = useLocation();
     const { id } = location.state;
-    const { loading, error, data } = useFetch<galleryItemProps>("http://localhost:1337/api/galleries/" + id + "?populate=*");
-    const breadcrumbs = ["galerie"]
-    
+    const url = process.env.REACT_APP_STRAPI_API_URL;
+    const { loading, error, data } = useFetch<galleryItemProps>(url + "/api/galleries/" + id + "?populate=*");
+    const breadcrumbs = ["Galerie", data?.Name]
+    const imageSources: string[] = data?.images?.data.map((item: any) => url + item.attributes.url) || [];
+
+    //LOGIC
+	const [lightboxController, setLightboxController] = useState({
+		toggler: false,
+		slide: 1
+	});
+    function openLightboxOnSlide(number:number) {
+		setLightboxController({
+			toggler: !lightboxController.toggler,
+			slide: number
+		});
+	}
+
   return (
     <>
-    <section className="section">
+    <section className="section section--top">
         <div className="container">
-
+            <BreadCrumbs path={breadcrumbs} />
         </div>
     </section>
     <section className="section section--top section--bottom">
@@ -39,17 +50,17 @@ export default function GalleryDetail() {
                     {data && Array.isArray(data.images.data) &&  (
                     <div className="grid grid--center">
                     {data.images.data.map((data: any, index: number) => (
-                        <div className="grid__col col-6-12@sm col-4-12@md col-3-12@lg" key={index} onClick={() => setGalleryIndex(index)}>
+                        <div className="grid__col col-6-12@sm col-4-12@md col-3-12@lg" key={index} onClick={() => openLightboxOnSlide(index + 1)}>
                             <GalleryItem galleryData={data}/>
                         </div>
                     ))}
-                    <button onClick={() => setToggler(!toggler)}>
+                    {/* <button onClick={() => openLightboxOnSlide(2)}>
                         Open the lightbox.
-                    </button>
+                    </button> */}
                     <FsLightbox
-                        toggler={toggler}
-                        sources={data.images.data[galleryIndex].attributes.url}
-                        key={galleryIndex}
+                        toggler={lightboxController.toggler}
+                        sources={imageSources}
+                        slide={lightboxController.slide}
                     />
                     </div>
                     )}

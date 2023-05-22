@@ -1,7 +1,8 @@
 .gallery-item {
     overflow: hidden;
+    cursor: pointer;
+    border-radius: 4px;
     & .image img {
-        border-radius: 4px;
         transition: transform $t;
     }
     @media($lgUp) {

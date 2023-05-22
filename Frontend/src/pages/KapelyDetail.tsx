@@ -53,7 +53,7 @@ export default function KapelaDetail() {
                     {data?.mp3 &&
                       <div className="blog__section">
                           <h4>Ukázka z tvorby:</h4>
-                          <Audio url={data.mp3}/>                   
+                          <Audio src={data.mp3}/>                   
                       </div>
                     }
                     {data?.video &&

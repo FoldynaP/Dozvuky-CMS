@@ -31,9 +31,7 @@
         justify-content: center;
         gap: 40px;
         &__section {
-            &:not(:last-child) {
-                margin-bottom: 40px;
-            }
+                margin-top: 40px;
         }
         &__social {
             position: sticky;
