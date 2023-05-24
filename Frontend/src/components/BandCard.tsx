@@ -2,13 +2,15 @@ import React from 'react'
 import Image from './core/Image'
 import SvgIcon from './core/SvgIcon'
 import { Link } from 'react-router-dom'
+import { accentTidy } from '../composable/accentTidy'
 
 export default function BandCard(props) {
-    const path = props.data.Name.replace(/\s/g, "_");
+    const url = process.env.REACT_APP_STRAPI_API_URL;
+    const path = accentTidy(props.data.Name);
   return (
-    <Link to={`/Kapely/` + path} state={{ id: props.data.id}} className="carousel-band__item">
+    <Link to={`/kapely/` + path} state={{ id: props.data.id}} className="carousel-band__item">
         <div className={"carousel-band__img"}>
-            <Image image={`http://localhost:1337` + props.data.Image.data.attributes.url} alt={props.data.alt}/>
+            <Image image={ url + props.data.Image.data.attributes.url} alt={props.data.alt}/>
         </div>
         <div className="carousel-band__content">
             <h4 className="carousel-band__title">{props.data.Name}</h4>

@@ -17,15 +17,15 @@ interface FaqData {
 }
 
 export default function Homepage() {
-  
-  const {loading: loadingBands, error: bandError, data: bandData} = useFetch("http://localhost:1337/api/bands?populate=*");
-  const {loading: loadingNews, error: newsError, data: newsData} = useFetch("http://localhost:1337/api/articles?populate=*");
+  const url = process.env.REACT_APP_STRAPI_API_URL;
+  const {loading: loadingBands, error: bandError, data: bandData} = useFetch(url + "/api/bands?populate=*");
+  const {loading: loadingNews, error: newsError, data: newsData} = useFetch(url + "/api/articles?populate=*");
 
   const { loading: loadingFaqs, error: faqsError, data: fetchFaqsData }: {
     loading: boolean;
     error: any;
     data: FaqData[] | null | undefined;
-  } = useFetch("http://localhost:1337/api/faqs?populate=*");
+  } = useFetch(url + "/api/faqs?populate=*");
   
   // Handle the case when faqsData is null
   const faqsData: FaqData[] = fetchFaqsData || [];

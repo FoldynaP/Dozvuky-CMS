@@ -7,10 +7,11 @@ interface mainImage {
 }
 
 export default function MainImage(props:mainImage) {
+  const url = process.env.REACT_APP_STRAPI_API_URL;
   return (
     <div className="main-image">
         <div className="main-image__img">
-            <Image image={`http://localhost:1337` + props.image}></Image>
+            <Image image={url + props.image}></Image>
         </div>
         <div className="main-image__content">
             <h1 className="main-image__title">{ props.title }</h1>

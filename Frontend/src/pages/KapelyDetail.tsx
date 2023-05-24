@@ -21,9 +21,10 @@ interface BandProps {
 }
 
 export default function KapelaDetail() {
+  const url = process.env.REACT_APP_STRAPI_API_URL;
   const location = useLocation();
   const { id } = location.state;
-  const { loading, error, data } = useFetch<BandProps>("http://localhost:1337/api/bands/" + id + "?populate=*");
+  const { loading, error, data } = useFetch<BandProps>(url + "/api/bands/" + id + "?populate=*");
 
   const breadcrumbs = ["Kapely", data?.Name]
 

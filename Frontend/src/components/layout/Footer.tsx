@@ -16,34 +16,34 @@ export default function Footer() {
                         </div>
                         <h4>Spolek Pro Vás od Nás:</h4>
                         <ul>
-                            <li>tel: <a href="tel:+420 123 456 789">+420 123 456 789</a></li>
-                            <li>mail: <a href="mailto:provasodnas@domena.cz">provasodnas@domena.cz</a></li>
+                            <li><a href="tel:+420 123 456 789">tel: +420 123 456 789</a></li>
+                            <li><a href="mailto:provasodnas@domena.cz">mail: provasodnas@domena.cz</a></li>
                         </ul>
                     </div>
                     <div className="grid__col col-4-12@md">
                         <h4>Pořadatelé:</h4>
                         <span>Tomáš Kupka:</span>
                         <ul>
-                            <li>tel: <a href="tel:+420 123 456 789">+420 123 456 789</a></li>
-                            <li>mail: <a href="mailto:email@domena.cz">tomas.kupka@domena.cz</a></li>
+                            <li><a href="tel:+420 123 456 789">tel: +420 123 456 789</a></li>
+                            <li><a href="mailto:email@domena.cz">mail: tomas.kupka@domena.cz</a></li>
                         </ul>
                         <span>Jiří Holý</span>
                         <ul>
-                            <li>tel: <a href="tel:+420 123 456 789">+420 123 456 789</a></li>
-                            <li>mail: <a href="mailto:email@domena.cz">jiri.holy@domena.cz</a></li>
+                            <li><a href="tel:+420 123 456 789">tel: +420 123 456 789</a></li>
+                            <li><a href="mailto:email@domena.cz">mail: jiri.holy@domena.cz</a></li>
                         </ul>
                     </div>
                     <div className="grid__col col-4-12@md">
                         <h4>Kapely a stánkový provoz:</h4>
                         <span>Tomáš Kupka:</span>
                         <ul>
-                            <li>tel: <a href="tel:+420 123 456 789">+420 123 456 789</a></li>
-                            <li>mail: <a href="mailto:email@domena.cz">tomas.kupka@domena.cz</a></li>
+                            <li><a href="tel:+420 123 456 789">tel: +420 123 456 789</a></li>
+                            <li><a href="mailto:email@domena.cz">mail: tomas.kupka@domena.cz</a></li>
                         </ul>
                         <span>Jiří Holý</span>
                         <ul>
-                            <li>tel: <a href="tel:+420 123 456 789">+420 123 456 789</a></li>
-                            <li>mail: <a href="mailto:email@domena.cz">jiri.holy@domena.cz</a></li>
+                            <li><a href="tel:+420 123 456 789">tel: +420 123 456 789</a></li>
+                            <li><a href="mailto:email@domena.cz">mail: jiri.holy@domena.cz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ export default function Footer() {
                   <SvgIcon svgName="twitter"></SvgIcon>
                 </a>
             </div>
-            <div className="footer__copyright">&#169(copyright) Pro Vás od Nás 2023</div>
+            <div className="footer__copyright">Pro Vás od Nás 2023</div>
         </div>
     </footer>
   )

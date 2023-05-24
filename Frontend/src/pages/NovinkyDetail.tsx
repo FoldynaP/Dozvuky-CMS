@@ -22,9 +22,10 @@ interface NewsProps {
 }
 
 export default function Novinky() {
+  const url = process.env.REACT_APP_STRAPI_API_URL;
   const location = useLocation();
   const { id } = location.state;
-  const { loading, error, data } = useFetch<NewsProps>("http://localhost:1337/api/articles/" + id + "?populate=*");
+  const { loading, error, data } = useFetch<NewsProps>(url + "/api/articles/" + id + "?populate=*");
   const breadcrumbs = [data?.Name]
 
   return (

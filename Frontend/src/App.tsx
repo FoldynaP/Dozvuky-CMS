@@ -14,9 +14,10 @@ import GalleryDetail from './pages/GalleryDetail';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
+const url = process.env.REACT_APP_STRAPI_API_URL;
 //apollo client
 const client = new ApolloClient({
-  uri: "http://localhost:1337/graphql",
+  uri: url + "/graphql",
   cache: new InMemoryCache(),
 })
 
