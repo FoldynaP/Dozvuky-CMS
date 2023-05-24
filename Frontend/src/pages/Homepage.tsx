@@ -67,7 +67,7 @@ export default function Homepage() {
             <div className="text-block u-text-center">
                 <h2>Festival plný zážitků...</h2>
                 <h4>Mrkni na minulé ročníky!</h4>
-                <Link to="/" className="btn-glitch" role="button"><span className="btn-glitch__text">Galerie</span></Link>
+                <Link to="/galerie" className="btn-glitch" role="button"><span className="btn-glitch__text">Galerie</span></Link>
             </div>
         </div>
     </section>

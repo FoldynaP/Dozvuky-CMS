@@ -38,7 +38,7 @@ export default function Hero() {
   
 
   return (
-    <div className="hero" data-interval="{{ props.timeInterval }}">
+    <div className="hero">
       <div className="hero__slides">
         {SliderData.map((item, index) => (
           <div

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 //PAGES
 import Homepage from './pages/Homepage';
@@ -12,6 +13,12 @@ import GalleryDetail from './pages/GalleryDetail';
 //layout
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+
+//apollo client
+const client = new ApolloClient({
+  uri: "http://localhost:1337/graphql",
+  cache: new InMemoryCache(),
+})
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,7 +33,6 @@ function ScrollToTop() {
           const anchors = mainElement.querySelectorAll('a');
           anchors.forEach((anchor) => {
             anchor.addEventListener('click', (event) => {
-              event.preventDefault();
               const targetId = anchor.getAttribute('href')?.substring(1);
               const targetElement = targetId ? document.getElementById(targetId) : null;
               if (targetElement) {
@@ -50,21 +56,23 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/kapely" element={<Kapely />} />
-            <Route path="/kapely/:id" element={<KapelyDetail />} />
-            <Route path="/galerie" element={<Gallery />} />
-            <Route path="/galerie/:id" element={<GalleryDetail />} />
-            <Route path="/novinky/:id" element={<NovinkyDetail />} />
-          </Routes>
-        </main>
-        <Footer />
-        <ScrollToTop />
-      </div>
+      <ApolloProvider client={client}>
+        <div className="App">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/kapely" element={<Kapely />} />
+              <Route path="/kapely/:id" element={<KapelyDetail />} />
+              <Route path="/galerie" element={<Gallery />} />
+              <Route path="/galerie/:id" element={<GalleryDetail />} />
+              <Route path="/novinky/:id" element={<NovinkyDetail />} />
+            </Routes>
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </div>
+      </ApolloProvider>
     </Router>
   );
 }

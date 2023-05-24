@@ -4,8 +4,9 @@ import SvgIcon from './core/SvgIcon'
 import { Link } from 'react-router-dom'
 
 export default function BandCard(props) {
+    const path = props.data.Name.replace(/\s/g, "_");
   return (
-    <Link to={`/Kapely/` + props.data.Name} state={{ id: props.data.id}} className="carousel-band__item">
+    <Link to={`/Kapely/` + path} state={{ id: props.data.id}} className="carousel-band__item">
         <div className={"carousel-band__img"}>
             <Image image={`http://localhost:1337` + props.data.Image.data.attributes.url} alt={props.data.alt}/>
         </div>

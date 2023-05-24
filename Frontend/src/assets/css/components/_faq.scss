@@ -1,5 +1,5 @@
 .faq {
-    padding: 20px;
+    padding: 20px 20px 0;
     background-color: #222222;
     border-radius: 8px;
     &:not(:last-child) {
@@ -8,13 +8,14 @@
     &__btn {
         cursor: pointer;
         position: relative;
+        padding-bottom: 20px;
         h4 {
             margin-bottom: 0;
         }
         &::after {
 			content: '';
 			position: absolute;
-			top: 40%;
+			top: 8px;
 			right: 22px;
 			width: 11px;
 			height: 11px;
@@ -34,6 +35,11 @@
         transition: grid-template-rows $t;
         display: grid;
         grid-template-rows: 0fr;
+        .rich-text p {
+            &:last-child {
+                margin-bottom: 20px;
+            }
+        }
         .faq.is-open & {
             grid-template-rows: 1fr;
         }
@@ -44,7 +50,7 @@
     @media ($mdUp) {
         &__btn {
             &::after {
-                top: 40%;
+                top: 8px;
                 right: 22px;
                 width: 11px;
                 height: 11px;
