@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="footer__contacts" id="kontakty">
                 <Title title="Kontakty"></Title>
                 <div className="grid">
-                    <div className="grid__col col-4-12@md">
+                    <div className="grid__col col-3-12@md">
                         <div className="footer__contact-logo">
                           <Image image="../img/illust/footer/provasodnas.png" alt="fotka publika před podiem" loading="lazy"></Image>
                         </div>
@@ -20,7 +20,7 @@ export default function Footer() {
                             <li><a href="mailto:provasodnas@domena.cz">mail: provasodnas@domena.cz</a></li>
                         </ul>
                     </div>
-                    <div className="grid__col col-4-12@md">
+                    <div className="grid__col col-3-12@md">
                         <h4>Pořadatelé:</h4>
                         <span>Tomáš Kupka:</span>
                         <ul>
@@ -33,7 +33,7 @@ export default function Footer() {
                             <li><a href="mailto:email@domena.cz">mail: jiri.holy@domena.cz</a></li>
                         </ul>
                     </div>
-                    <div className="grid__col col-4-12@md">
+                    <div className="grid__col col-3-12@md">
                         <h4>Kapely a stánkový provoz:</h4>
                         <span>Tomáš Kupka:</span>
                         <ul>
@@ -46,19 +46,26 @@ export default function Footer() {
                             <li><a href="mailto:email@domena.cz">mail: jiri.holy@domena.cz</a></li>
                         </ul>
                     </div>
+                    <div className="grid__col col-3-12@md">
+                        <h4 className="u-text-center">Sledujte nás na sociálních sítích:</h4>
+                        <div className="footer__socials">
+                            <a target="_blank" href="https://www.facebook.com/provasodnas" className="footer__social-link">
+                            <SvgIcon svgName="fb"></SvgIcon>
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/dozvuky_leta/" className="footer__social-link">
+                            <SvgIcon svgName="instagram"></SvgIcon>
+                            </a>
+                            <a target="_blank" href="#" className="footer__social-link">
+                            <SvgIcon svgName="twitter"></SvgIcon>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h4 className="u-text-center">Sledujte nás na sociálních sítích:</h4>
-            <div className="footer__socials">
-                <a target="_blank" href="https://www.facebook.com/provasodnas" className="footer__social-link">
-                <SvgIcon svgName="fb"></SvgIcon>
-                </a>
-                <a target="_blank" href="https://www.instagram.com/dozvuky_leta/" className="footer__social-link">
-                <SvgIcon svgName="instagram"></SvgIcon>
-                </a>
-                <a target="_blank" href="#" className="footer__social-link">
-                  <SvgIcon svgName="twitter"></SvgIcon>
-                </a>
+            <div className="footer__sponsors">
+                <div className="footer__sponsor-item">
+                    
+                </div>
             </div>
             <div className="footer__copyright">Pro Vás od Nás 2023</div>
         </div>
