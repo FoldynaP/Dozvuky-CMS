@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "ticket_sections",
+  "info": {
+    "singularName": "ticket-section",
+    "pluralName": "ticket-sections",
+    "displayName": "Ticket-section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "default": "Lístky"
+    },
+    "Annotation": {
+      "type": "richtext"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "TicketSteps": {
+      "displayName": "Step",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.step"
+    }
+  }
+}

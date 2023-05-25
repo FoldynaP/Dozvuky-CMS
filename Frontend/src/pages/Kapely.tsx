@@ -3,15 +3,17 @@ import useFetch from '../hooks/UseFetch';
 import BreadCrumbs from '../components/core/BreadCrumbs';
 import CrossRoad from '../components/CrossRoad';
 import Title from '../components/core/Title';
+import Error from '../components/core/Error';
+import Loading from '../components/core/Loading';
 
 export default function Kapely() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const { loading: loadingBands, error: bandError, data: bandData } = useFetch(url + "/api/bands?populate=*");
-  const breadcrumbs = ["Kapely"];
+  const breadcrumbs = ["kapely"];
 
   return (
     <>
-      <section className="section section--top">
+      <section className="section">
         <div className="container">
         <BreadCrumbs path={breadcrumbs} />
         </div>
@@ -19,6 +21,9 @@ export default function Kapely() {
       <section className="section section--top section--bottom">
         <div className="container">
           <Title title="Kapely"></Title>
+          {loadingBands &&
+            <Loading />
+          }
           {Array.isArray(bandData) && (
             <div className="grid grid--center">
               {bandData.map((data: any, index: number) => (
@@ -28,6 +33,9 @@ export default function Kapely() {
               ))}
             </div>
           )}
+          {bandError && 
+            <Error />
+          }
         </div>
       </section>
     </>

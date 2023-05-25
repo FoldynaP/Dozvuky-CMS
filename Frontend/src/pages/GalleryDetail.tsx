@@ -7,6 +7,8 @@ import FsLightbox from "fslightbox-react";
 import BreadCrumbs from '../components/core/BreadCrumbs'
 import Title from '../components/core/Title'
 import GalleryItem from '../components/GalleryItem'
+import Loading from '../components/core/Loading';
+import Error from '../components/core/Error';
 
 interface galleryItemProps {
     id: number,
@@ -19,7 +21,7 @@ export default function GalleryDetail() {
     const { id } = location.state;
     const url = process.env.REACT_APP_STRAPI_API_URL;
     const { loading, error, data } = useFetch<galleryItemProps>(url + "/api/galleries/" + id + "?populate=*");
-    const breadcrumbs = ["Galerie", data?.Name]
+    const breadcrumbs = ["galerie", data?.Name]
     const imageSources: string[] = data?.images?.data.map((item: any) => url + item.attributes.url) || [];
 
     //LOGIC
@@ -36,35 +38,43 @@ export default function GalleryDetail() {
 
   return (
     <>
-    <section className="section section--top">
+    <section className="section">
         <div className="container">
             <BreadCrumbs path={breadcrumbs} />
         </div>
     </section>
     <section className="section section--top section--bottom">
         <div className="container">
-                <div>
-                    {data && data.Name &&
-                        <Title title={data.Name}></Title>
-                    }
-                    {data && Array.isArray(data.images.data) &&  (
-                    <div className="grid grid--center">
-                    {data.images.data.map((data: any, index: number) => (
-                        <div className="grid__col col-6-12@sm col-4-12@md col-3-12@lg" key={index} onClick={() => openLightboxOnSlide(index + 1)}>
-                            <GalleryItem galleryData={data}/>
+                {data &&
+                    <div>
+                        {data.Name &&
+                            <Title title={data.Name}></Title>
+                        }
+                        {Array.isArray(data.images.data) &&  (
+                        <div className="grid grid--center">
+                        {data.images.data.map((data: any, index: number) => (
+                            <div className="grid__col col-6-12@sm col-4-12@md col-3-12@lg" key={index} onClick={() => openLightboxOnSlide(index + 1)}>
+                                <GalleryItem galleryData={data}/>
+                            </div>
+                        ))}
+                        {/* <button onClick={() => openLightboxOnSlide(2)}>
+                            Open the lightbox.
+                        </button> */}
+                        <FsLightbox
+                            toggler={lightboxController.toggler}
+                            sources={imageSources}
+                            slide={lightboxController.slide}
+                        />
                         </div>
-                    ))}
-                    {/* <button onClick={() => openLightboxOnSlide(2)}>
-                        Open the lightbox.
-                    </button> */}
-                    <FsLightbox
-                        toggler={lightboxController.toggler}
-                        sources={imageSources}
-                        slide={lightboxController.slide}
-                    />
+                        )}
                     </div>
-                    )}
-                </div>
+                }
+                {loading &&
+                    <Loading />
+                }
+                {error && 
+                    <Error />
+                }
         </div>
     </section>
     </>

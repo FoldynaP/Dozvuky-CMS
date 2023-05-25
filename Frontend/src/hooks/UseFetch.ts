@@ -43,6 +43,11 @@ const useFetch = <T>(url: string): FetchState<T> => {
       setLoading(true);
       try {
         const res = await fetch(url);
+
+        if (!res.ok) {
+          // throw new Error(`request failed with status ${res.status}`);
+          setError(true);
+        }
         const json = await res.json();
 
         const sanitizedData = sanitizeApiResponse<T>(json);

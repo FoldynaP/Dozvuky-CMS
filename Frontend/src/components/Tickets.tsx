@@ -1,12 +1,41 @@
 import React from 'react'
+//methods
+import useFetch from '../hooks/UseFetch'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+//components
 import SvgIcon from './core/SvgIcon'
+import Title from './core/Title'
+
+interface ticketSection {
+    id: number,
+    Title: string,
+    Link: string,
+    buttonText: string,
+    Annotation: any,
+}
 
 export default function Tickets() {
+    const url = process.env.REACT_APP_STRAPI_API_URL;
+    const { loading, error, data } : {
+        loading: boolean;
+        error: any;
+        data: ticketSection | null | undefined;
+    } = useFetch(url + "/api/ticket-section?populate=*");
+    console.log(data)
   return (
+    <>
+    {data && 
     <div className="tickets">
+        {data.Title &&
+            <Title title={data.Title} />
+        }
+        {data.Annotation &&
         <div className="tickets__title">
-            <h4 className="u-text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium qui laborum aliquam tempora accusamus labore pariatur nesciunt atque quam praesentium assumenda</h4>
+            <ReactMarkdown className="rich-text u-text-center">
+                {data.Annotation}
+            </ReactMarkdown>
         </div>
+        }
         <div className="tickets__button">
             <a target="_blank" href="https://www.ticketportal.cz/" className="btn-glitch" role="button"><span className="btn-glitch__text">Koupit lístek</span></a>
         </div>
@@ -46,5 +75,7 @@ export default function Tickets() {
             </div>
         </div>
     </div>
+    }
+    </>
   )
 }

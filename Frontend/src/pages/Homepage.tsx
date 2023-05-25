@@ -7,7 +7,8 @@ import Hero from '../components/Hero'
 import Title from '../components/core/Title'
 import Tickets from '../components/Tickets'
 import Faq from '../components/Faq'
-import BandCarousel from '../components/EmblaCarousel'
+import Loading from '../components/core/Loading';
+import Error from '../components/core/Error';
 import EmblaCarousel from '../components/EmblaCarousel'
 
 interface FaqData {
@@ -41,13 +42,15 @@ export default function Homepage() {
         <EmblaCarousel slides={bandData} options={OPTIONS}/>
       }
       {loadingBands &&
-        <p>Loading</p>
+        <Loading />
+      }
+      {bandError && 
+        <Error />
       }
       </div>
     </section>
     <section className="section section--top" id="listky">
       <div className="container">
-          <Title title="Neváhejte koupit lístky!" />
           <Tickets/>
       </div>
     </section>
@@ -58,7 +61,10 @@ export default function Homepage() {
             <EmblaCarousel articles={true} slides={newsData} options={OPTIONS}/>
           }
           {loadingNews &&
-            <p>Loading</p>
+            <Loading />
+          }
+          {newsError && 
+            <Error />
           }
       </div>
     </section>
@@ -95,9 +101,19 @@ export default function Homepage() {
     </section>
     <section className="section section--top section--bottom">
       <div className="container">
-      {faqsData.map((data: any, index: number) => (
-        <Faq faqData={data} key={index} />
-      ))}
+      {faqsData && 
+        <div className="faqs">
+          {faqsData.map((data: any, index: number) => (
+            <Faq faqData={data} key={index} />
+          ))}
+        </div>
+      }
+      {loadingFaqs && 
+        <Loading />
+      }
+      {faqsError && 
+        <Error />
+      }
       </div>
     </section>
     </>
