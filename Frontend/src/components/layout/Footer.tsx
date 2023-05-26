@@ -1,9 +1,21 @@
 import React from 'react'
+//methods
+import useFetch from '../../hooks/UseFetch'
+//components
 import SvgIcon from '../core/SvgIcon'
 import Image from '../core/Image'
 import Title from '../core/Title'
 
+interface SponsorsType {
+    id: number,
+    Name: string,
+    Logo: any,
+}
+
 export default function Footer() {
+    const url = process.env.REACT_APP_STRAPI_API_URL;
+    const { loading, error, data } = useFetch<SponsorsType>(url + "/api/sponsors?populate=*");
+
   return (
     <footer className="footer">
         <div className="container">
@@ -63,20 +75,17 @@ export default function Footer() {
                 </div>
             </div>
             <Title title="Sponzoři" />
+            {Array.isArray(data) && (
             <div className="footer__sponsors">
-                <div className="footer__sponsor-item">
-                    <Image image="../img/illust/sponsors/pardubice.png" alt="Logo pardubického kraje"></Image>
-                    <div className="footer__sponsor-title">Pardubický kraj</div>
-                </div>
-                <div className="footer__sponsor-item">
-                    <Image image="../img/illust/sponsors/techplast.png" alt="Logo techplastu"></Image>
-                    <div className="footer__sponsor-title">Techplast</div>
-                </div>
-                <div className="footer__sponsor-item">
-                    <Image image="../img/illust/sponsors/znak.png" alt="Logo České Třebové"></Image>
-                    <div className="footer__sponsor-title">Česká Třebová</div>
-                </div>
+                {data.map((data: any, index: number) => (
+                    <div className="footer__sponsor-item" key={index}>
+                        <div className="footer__sponsor-image">
+                            <Image image={url + data.Logo.data.attributes.url} alt={data.Logo.data.attributes.alternativeText}></Image>
+                        </div>
+                    </div>
+                ))}
             </div>
+            )}
             <div className="footer__copyright">Pro Vás od Nás 2023</div>
         </div>
     </footer>

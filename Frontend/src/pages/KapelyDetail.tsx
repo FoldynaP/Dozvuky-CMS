@@ -33,7 +33,6 @@ export default function KapelaDetail() {
   const location = useLocation();
   const { id } = location.state;
   const { loading, error, data } = useFetch<BandProps>(url + "/api/bands/" + id + "?populate=*");
-  console.log(data)
 
   const breadcrumbs = ["kapely", data?.Name]
 

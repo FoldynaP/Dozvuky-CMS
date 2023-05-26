@@ -79,8 +79,9 @@
     }
     &__sponsors {
         display: flex;
-        align-items: center;
-        justify-content: space-around;
+        align-items: baseline;
+        justify-content: center;
+        gap: 40px;
     }
     &__sponsor-item {
         text-align: center;
@@ -90,7 +91,7 @@
         flex-direction: column;
         .image img {
             width: auto;
-            max-height: 100px;
+            max-height: 40px;
         }
     }
     &__created {
