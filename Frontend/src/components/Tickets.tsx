@@ -10,8 +10,14 @@ interface ticketSection {
     id: number,
     Title: string,
     Link: string,
-    buttonText: string,
-    Annotation: any,
+    ButtonText: string,
+    Annotation: string,
+    // TicketSteps: {
+    //     id: number,
+    //     Title: string,
+    //     description: string
+    // }
+    TicketSteps: any
 }
 
 export default function Tickets() {
@@ -21,7 +27,6 @@ export default function Tickets() {
         error: any;
         data: ticketSection | null | undefined;
     } = useFetch(url + "/api/ticket-section?populate=*");
-    console.log(data)
   return (
     <>
     {data && 
@@ -36,44 +41,30 @@ export default function Tickets() {
             </ReactMarkdown>
         </div>
         }
-        <div className="tickets__button">
-            <a target="_blank" href="https://www.ticketportal.cz/" className="btn-glitch" role="button"><span className="btn-glitch__text">Koupit lístek</span></a>
-        </div>
+        {data.ButtonText && 
+            <div className="tickets__button">
+                <a target="_blank" href={data.Link ? data.Link : "#"} className="btn-glitch" role="button"><span className="btn-glitch__text">{data.ButtonText}</span></a>
+            </div>
+        }
+        {data.TicketSteps && 
         <div className="grid">
-            <div className="grid__col col-6-12@md col-4-12@lg">
-                <div className="tickets__steps">
-                    <h4 className="tickets__step-title">
-                        1. Klikni na odkaz 
-                        <SvgIcon svgName={"ticket"}></SvgIcon>
-                    </h4>
-                    <div className="tickets__step-content">
-                        <p>Klikni na odkaz výše a dostaň se na stránku ticketportal, kde můžeš koupit lístek na festival.</p>
-                    </div>
-                </div>
-            </div>
-            <div className="grid__col col-6-12@md col-4-12@lg">
-                <div className="tickets__steps">
-                    <h4 className="tickets__step-title">
-                        2. Platba 
-                        <SvgIcon svgName={"pay"}></SvgIcon>
-                    </h4>
-                    <div className="tickets__step-content">
-                        <p>Vyber si platbu a následně proveď úhradu. Část tvé vstupenky půjde na dobrou věc!</p>
-                    </div>
-                </div>
-            </div>
-            <div className="grid__col col-6-12@md col-4-12@lg">
-                <div className="tickets__steps">
-                    <h4 className="tickets__step-title">
-                        3. Doraž 
-                        <SvgIcon svgName={"party"}></SvgIcon>
+            {data.TicketSteps.map((data: any, index: number) => (
+                <div className="grid__col col-6-12@md col-4-12@lg" key={index}>
+                    <div className="tickets__steps">
+                        <h4 className="tickets__step-title">
+                            {data.Title}
+                            <SvgIcon svgName={data.Icon}></SvgIcon>
                         </h4>
-                    <div className="tickets__step-content">
-                        <p>Už zbývá jenom dorazit. Budeme se těšit. Vše vypukne 1.9. Více informací <a href="#">zde.</a></p>
+                        {data.Description &&
+                        <div className="tickets__step-content">
+                            <p>{data.Description}</p>
+                        </div>
+                        }
                     </div>
                 </div>
-            </div>
+            ))}
         </div>
+        }
     </div>
     }
     </>

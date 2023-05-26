@@ -35,5 +35,10 @@
 			padding-top: 80px;
 			padding-bottom: 80px;
 		}
+		&--promo {
+			min-height: 600px;
+			display: flex;
+			align-items: center;
+		}
 	}
 }

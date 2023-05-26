@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "header_sections",
+  "info": {
+    "singularName": "header-section",
+    "pluralName": "header-sections",
+    "displayName": "Header-section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Annotation": {
+      "type": "richtext"
+    },
+    "Slideshow": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

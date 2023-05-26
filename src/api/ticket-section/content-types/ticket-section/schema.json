@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ticket-section",
     "pluralName": "ticket-sections",
-    "displayName": "Ticket-section"
+    "displayName": "Ticket-section",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -68,7 +68,7 @@ export default function Homepage() {
           }
       </div>
     </section>
-    <section className="section section--bg section--bottom">
+    <section className="section section--bg section--bottom section--promo">
         <div className="container">
             <div className="text-block u-text-center">
                 <h2>Festival plný zážitků...</h2>
