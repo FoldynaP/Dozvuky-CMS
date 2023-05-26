@@ -11,5 +11,11 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "Contact": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.contact"
+    }
+  }
 }

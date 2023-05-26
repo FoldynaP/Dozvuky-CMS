@@ -30,9 +30,12 @@
         h2,h3,h4 {
             color: $colorBlack10;
         }
+    }
+    &__contact {
         ul {
             li {
                 padding-left: 0;
+                margin-bottom: 0;
                 &::before {
                     display: none;
                 }
@@ -42,6 +45,9 @@
                 }
             }
         }
+    }
+    &__contact-name {
+        margin-bottom: 10px;
     }
     &__contact-logo {
         max-width: 160px;
@@ -69,13 +75,14 @@
         flex-wrap: wrap;
         margin-bottom: 40px;
     }
-    &__owner {
-        display: flex;
-        gap: 20px;
+    &__logo {
+        &--left {
+            text-align: right;
+        }
     }
-    &__social-wrap {
-        display: flex;
-        flex-direction: column;
+    &__social {
+        padding-top: 40px;
+        margin-bottom: 40px;
     }
     &__sponsors {
         display: flex;

@@ -15,7 +15,7 @@ export default function GalleryItem({galleryData}:galleryData) {
   return (
     <>
       <div className="gallery-item">
-        <Image image={url + galleryData.attributes.url}></Image>
+        <Image image={url + galleryData.attributes.url} alt={galleryData.attributes.alternativeText}></Image>
       </div>
     </>
   )

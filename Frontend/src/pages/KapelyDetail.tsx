@@ -20,7 +20,7 @@ interface BandProps {
     Description?: string,
     Image?: any,
     blogText: any,
-    SEO: any,
+    SEO?: any,
     mp3?: string,
     video?: string,
     instagram?: string,
@@ -38,10 +38,12 @@ export default function KapelaDetail() {
 
   return (
     <>
+    {data?.SEO &&
     <Helmet>
       <title>{data?.SEO.Title}</title>
       <meta name="description" content={data?.SEO.Description} />
     </Helmet>
+    }
     <section className="section">
       <div className="container">
         <BreadCrumbs path={breadcrumbs} />
@@ -54,7 +56,7 @@ export default function KapelaDetail() {
       <>
       <section className="section">
         <div className="container">
-          <MainImage image={data?.Image.data.attributes.url} title={data?.Name} />
+          <MainImage image={data?.Image.data.attributes.url} imageAlt={data?.Image.data.attributes.alternativeText} title={data?.Name} />
         </div>
       </section>
       <section className="section section--top section--bottom">

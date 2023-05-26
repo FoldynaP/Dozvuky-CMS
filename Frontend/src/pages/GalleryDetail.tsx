@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router'
 import useFetch from '../hooks/UseFetch'
 import FsLightbox from "fslightbox-react";
+import { Helmet } from 'react-helmet';
 
 //Components
 import BreadCrumbs from '../components/core/BreadCrumbs'
@@ -14,6 +15,7 @@ interface galleryItemProps {
     id: number,
     Name: string,
     images: any,
+    SEO?: any,
 }
 
 export default function GalleryDetail() {
@@ -38,6 +40,12 @@ export default function GalleryDetail() {
 
   return (
     <>
+    {data?.SEO &&
+    <Helmet>
+      <title>{data?.SEO.Title}</title>
+      <meta name="description" content={data?.SEO.Description} />
+    </Helmet>
+    }
     <section className="section">
         <div className="container">
             <BreadCrumbs path={breadcrumbs} />

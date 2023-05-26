@@ -2,6 +2,7 @@ import React from 'react'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import useFetch from '../hooks/UseFetch';
 import { useLocation } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 //Komponenty
 import BreadCrumbs from '../components/core/BreadCrumbs'
@@ -20,6 +21,7 @@ interface NewsProps {
   facebook: string,
   instagram: string,
   youtube: string
+  SEO: any,
 }
 
 export default function Novinky() {
@@ -31,6 +33,12 @@ export default function Novinky() {
 
   return (
     <>
+    {data?.SEO &&
+      <Helmet>
+        <title>{data?.SEO.Title}</title>
+        <meta name="description" content={data?.SEO.Description} />
+      </Helmet>
+    }
     <section className="section">
       <div className="container">
         <BreadCrumbs path={breadcrumbs} />
@@ -43,7 +51,7 @@ export default function Novinky() {
       <>
       <section className="section">
         <div className="container">
-          <MainImage image={data?.Detail.data.attributes.url} title={data?.Name} />
+          <MainImage image={data?.Detail.data.attributes.url} title={data?.Name} imageAlt={data?.Detail.data.attributes.alternativeText}/>
         </div>
       </section>
       <section className="section section--top section--bottom">

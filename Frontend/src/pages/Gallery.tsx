@@ -13,7 +13,7 @@ const url = process.env.REACT_APP_STRAPI_API_URL;
 const { loading: loadingGallery, error: galleryError, data: crossroadData } = useFetch(url + "/api/galleries?populate=*");
 const breadcrumbs = ["galerie"];
 const TITLE = "Dozvuky léta - Galerie";
-const DESCRIPTION = "Nahlédněte do fotogalerie festivalu dozvuky léta. Prohlédnout si můžete fotografie minulých ročníků";
+const DESCRIPTION = "Nahlédněte do fotogalerie festivalu dozvuky léta v České Třebové. Prohlédnout si můžete fotografie minulých ročníků";
 
   return (
     <>

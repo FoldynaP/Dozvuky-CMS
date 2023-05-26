@@ -70,7 +70,7 @@ export default function Hero() {
                 }`}
                 key={index}
               >
-                <Image image={url + item.attributes.url} alt={"Úvodní fotografie festivalu dozvuky léta"} />
+                <Image image={url + item.attributes.url} alt={item.attributes.alternativeText} />
               </div>
             ))}
           </div>
