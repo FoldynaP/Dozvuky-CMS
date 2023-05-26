@@ -62,9 +62,19 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+            <Title title="Sponzoři" />
             <div className="footer__sponsors">
                 <div className="footer__sponsor-item">
-                    
+                    <Image image="../img/illust/sponsors/pardubice.png" alt="Logo pardubického kraje"></Image>
+                    <div className="footer__sponsor-title">Pardubický kraj</div>
+                </div>
+                <div className="footer__sponsor-item">
+                    <Image image="../img/illust/sponsors/techplast.png" alt="Logo techplastu"></Image>
+                    <div className="footer__sponsor-title">Techplast</div>
+                </div>
+                <div className="footer__sponsor-item">
+                    <Image image="../img/illust/sponsors/znak.png" alt="Logo České Třebové"></Image>
+                    <div className="footer__sponsor-title">Česká Třebová</div>
                 </div>
             </div>
             <div className="footer__copyright">Pro Vás od Nás 2023</div>

@@ -1,8 +1,8 @@
 .footer {
-    // background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)),url($imgPath + '/illust/bg/footerBg.webp');
-    // background-size: cover;
-    // background-position: center;
-    background-color: #3333;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)),url($imgPath + '/illust/bg/footerBg.webp');
+    background-size: cover;
+    background-position: center;
+    // background-color: #3333;
     padding: 40px 0;
     h4 {
         font-size: 20px;
@@ -34,7 +34,7 @@
             li {
                 padding-left: 0;
                 &::before {
-                    color: $colorBlack10;
+                    display: none;
                 }
                 a {
                     text-decoration: none;
@@ -76,6 +76,22 @@
     &__social-wrap {
         display: flex;
         flex-direction: column;
+    }
+    &__sponsors {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__sponsor-item {
+        text-align: center;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        .image img {
+            width: auto;
+            max-height: 100px;
+        }
     }
     &__created {
         color: $colorBlack40;

@@ -1,7 +1,11 @@
 import React from 'react';
+//methods
 import useFetch from '../hooks/UseFetch';
 import { useLocation } from 'react-router-dom';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import { Helmet } from 'react-helmet';
+
+//Components
 import SvgIcon from '../components/core/SvgIcon';
 import MainImage from '../components/MainImage';
 import Audio from '../components/Audio';
@@ -16,6 +20,7 @@ interface BandProps {
     Description?: string,
     Image?: any,
     blogText: any,
+    SEO: any,
     mp3?: string,
     video?: string,
     instagram?: string,
@@ -28,11 +33,16 @@ export default function KapelaDetail() {
   const location = useLocation();
   const { id } = location.state;
   const { loading, error, data } = useFetch<BandProps>(url + "/api/bands/" + id + "?populate=*");
+  console.log(data)
 
   const breadcrumbs = ["kapely", data?.Name]
 
   return (
     <>
+    <Helmet>
+      <title>{data?.SEO.Title}</title>
+      <meta name="description" content={data?.SEO.Description} />
+    </Helmet>
     <section className="section">
       <div className="container">
         <BreadCrumbs path={breadcrumbs} />

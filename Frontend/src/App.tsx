@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { Helmet } from 'react-helmet';
 
 //PAGES
 import Homepage from './pages/Homepage';
@@ -59,6 +60,10 @@ function App() {
     <Router>
       <ApolloProvider client={client}>
         <div className="App">
+          <Helmet>
+            <title>Dozvuky léta</title>
+            <meta name="description" content="Festival dozvuky léta je Českotřebovský festival, založený skupinou mladých lidí, jejichž cílem je oživit naše město. Festival se koná letos již po třetí a každým rokem se posouvá dál. Navštivte stránky pro více informací ohledně programu." />
+          </Helmet>
           <Navbar />
           <main>
             <Routes>
