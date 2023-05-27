@@ -36,9 +36,11 @@ export default function Tickets() {
         }
         {data.Annotation &&
         <div className="tickets__title">
-            <ReactMarkdown className="rich-text u-text-center">
-                {data.Annotation}
-            </ReactMarkdown>
+            <div className="tickets__rich-text">
+                <ReactMarkdown className="rich-text u-text-center">
+                    {data.Annotation}
+                </ReactMarkdown>
+            </div>
         </div>
         }
         {data.ButtonText && 

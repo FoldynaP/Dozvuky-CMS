@@ -17,6 +17,10 @@
         align-items: center;
         gap: 14px;
     }
+    &__rich-text {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
     @media ($mdUp) {
         &__button {

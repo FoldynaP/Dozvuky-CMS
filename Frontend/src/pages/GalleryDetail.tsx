@@ -65,9 +65,6 @@ export default function GalleryDetail() {
                                 <GalleryItem galleryData={data}/>
                             </div>
                         ))}
-                        {/* <button onClick={() => openLightboxOnSlide(2)}>
-                            Open the lightbox.
-                        </button> */}
                         <FsLightbox
                             toggler={lightboxController.toggler}
                             sources={imageSources}

@@ -1,0 +1,82 @@
+.countdown {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+    background-color: $colorSecondary;
+    padding: 40px;
+    color: $colorWhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    transition: transform $t;
+    transform: translateY(0);
+    &__counter {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    &__message {
+        font-size: 36px;
+        line-height: 44px;
+        color: #fff;
+    }
+    &__time {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70px;
+        border: 2px solid $colorWhite;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        font-size: 32px;
+        border-radius: 8px;
+        color: $colorSecondary;
+        background-color: $colorWhite;
+        font-weight: 700;
+        &:not(:last-child) {
+            &::before {
+                position: absolute;
+                content: "";
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: white;
+                right: -14px;
+                top: 57%;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: white;
+                right: -14px;
+                top: 43%;
+            }
+        }
+        & span {
+            font-size: 18px;
+        }
+    }
+    &__close {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        cursor: pointer;
+        & .icon-svg--cancel {
+            width: 20px;
+        }
+    }
+    &.hidden {
+        transform: translateY(100%);
+    }
+    @media ($mdUp) {
+        flex-direction: row;
+    }
+}

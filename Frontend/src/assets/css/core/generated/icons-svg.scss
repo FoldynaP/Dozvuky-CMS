@@ -34,6 +34,13 @@
 		}
 	}
 	
+	&--cancel {
+		width: 11.4px;
+		&::before {
+			padding-top: math.percentage(math.div(11.4, 11.4));
+		}
+	}
+	
 	&--fb {
 		width: 16px;
 		&::before {

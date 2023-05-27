@@ -45,8 +45,8 @@ export default function Footer() {
                                         <span className="footer__contact-name">{data.Contact}</span>
                                     }
                                     <ul>
-                                        <li><a href="tel:+420 123 456 789">tel: {data.Phone}</a></li>
-                                        <li><a href="mailto:provasodnas@domena.cz">mail: {data.Email}</a></li>
+                                        <li><a href={"tel:" + data.Phone}>tel: {data.Phone}</a></li>
+                                        <li><a href={"mailto:" + data.Email}>mail: {data.Email}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@ export default function Footer() {
                 ))}
             </div>
             )}
-            <div className="footer__copyright">Pro Vás od Nás 2023</div>
+            <div className="footer__copyright">&copy; Pro Vás od Nás 2023</div>
         </div>
     </footer>
   )

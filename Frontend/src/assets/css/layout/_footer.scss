@@ -1,7 +1,9 @@
 .footer {
+    position: relative;
     background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)),url($imgPath + '/illust/bg/footerBg.webp');
     background-size: cover;
     background-position: center;
+    z-index: 2;
     // background-color: #3333;
     padding: 40px 0;
     h4 {
@@ -76,9 +78,10 @@
         margin-bottom: 40px;
     }
     &__logo {
-        &--left {
-            text-align: right;
-        }
+        text-align: center;
+        // &--left {
+        //     text-align: right;
+        // }
     }
     &__social {
         padding-top: 40px;
@@ -87,6 +90,7 @@
     &__sponsors {
         display: flex;
         align-items: baseline;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 40px;
     }

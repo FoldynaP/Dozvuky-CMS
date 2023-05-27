@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Helmet } from 'react-helmet';
+import useFetch from './hooks/UseFetch';
 
 //PAGES
 import Homepage from './pages/Homepage';
@@ -11,9 +12,20 @@ import NovinkyDetail from './pages/NovinkyDetail';
 import Gallery from './pages/Gallery';
 import GalleryDetail from './pages/GalleryDetail';
 
+//Components
+import CountDown from './components/CountDown';
+
 //layout
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+
+interface countdownTypes {
+  id: number,
+  Message: string,
+  Date: Date,
+  After: string
+}
+
 
 const url = process.env.REACT_APP_STRAPI_API_URL;
 //apollo client
@@ -56,6 +68,16 @@ function ScrollToTop() {
 }
 
 function App() {
+  let targetDate: number | undefined;
+  const url = process.env.REACT_APP_STRAPI_API_URL;
+  const { loading, error, data } = useFetch<countdownTypes>(url + "/api/countdown" + "?populate=*");
+  const date = data?.Date;
+
+  if (date) {
+    const targetTime = new Date(date).getTime();
+    const now = new Date().getTime();
+    targetDate = now + (targetTime - now);
+  }
   return (
     <Router>
       <ApolloProvider client={client}>
@@ -76,6 +98,9 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          {data?.Date && 
+            <CountDown targetDate={targetDate} message={data?.Message}/>
+          }
           <ScrollToTop />
         </div>
       </ApolloProvider>

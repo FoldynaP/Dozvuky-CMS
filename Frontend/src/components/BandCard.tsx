@@ -7,7 +7,6 @@ import { accentTidy } from '../composable/accentTidy'
 export default function BandCard(props) {
     const url = process.env.REACT_APP_STRAPI_API_URL;
     const path = accentTidy(props.data.Name);
-    console.log(props.data)
   return (
     <Link to={`/kapely/` + path} state={{ id: props.data.id}} className="carousel-band__item">
         <div className={"carousel-band__img"}>

@@ -1,13 +1,16 @@
 import React from 'react'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import useFetch from '../hooks/UseFetch';
+import { useState } from 'react';
 import { useLocation } from 'react-router';
 import { Helmet } from 'react-helmet';
+import FsLightbox from "fslightbox-react";
 
 //Komponenty
 import BreadCrumbs from '../components/core/BreadCrumbs'
 import MainImage from '../components/MainImage'
 import Iframe from '../components/Iframe';
+import Image from '../components/core/Image';
 import SvgIcon from '../components/core/SvgIcon';
 import Loading from '../components/core/Loading';
 import Error from '../components/core/Error';
@@ -17,6 +20,7 @@ interface NewsProps {
   Name: string,
   Detail: any,
   BlogText: any,
+  Gallery: any,
   video: string,
   facebook: string,
   instagram: string,
@@ -30,6 +34,19 @@ export default function Novinky() {
   const { id } = location.state;
   const { loading, error, data } = useFetch<NewsProps>(url + "/api/articles/" + id + "?populate=*");
   const breadcrumbs = [data?.Name]
+  const imageSources: string[] = data?.Gallery?.data.map((item: any) => url + item.attributes.url) || [];
+
+  //Lightbox logic
+	const [lightboxController, setLightboxController] = useState({
+		toggler: false,
+		slide: 1
+	});
+    function openLightboxOnSlide(number:number) {
+		setLightboxController({
+			toggler: !lightboxController.toggler,
+			slide: number
+		});
+	}
 
   return (
     <>
@@ -65,14 +82,32 @@ export default function Novinky() {
                     :
                     <p>Text kapely pro vás připravujeme :-)</p>
                     }
-                      {data?.video &&
-                        <div className="blog__section">
-                          <h4>Video ukázka:</h4>
-                          <div className="blog__video">
-                              <Iframe url={data.video}/>
-                          </div>
+                    {data?.video &&
+                      <div className="blog__section">
+                        <h4>Video ukázka:</h4>
+                        <div className="blog__video">
+                            <Iframe url={data.video}/>
                         </div>
-                      }
+                      </div>
+                    }
+                    {data?.Gallery &&
+                      <div className="blog__gallery">
+                        <div className="grid">
+                          {data.Gallery.data.map((item: any, index: number) => (
+                            <div className="grid__col col-6-12@md">
+                              <div className="blog__gallery-item" key={index} onClick={() => openLightboxOnSlide(index + 1)}>
+                                <Image image={url + item.attributes.url} alt={item.attributes.alternativeText} />
+                              </div>
+                            </div>
+                          ))}
+                          <FsLightbox
+                            toggler={lightboxController.toggler}
+                            sources={imageSources}
+                            slide={lightboxController.slide}
+                          />
+                        </div>
+                      </div>
+                    }
                   </div>
                   {(data?.instagram || data?.facebook) &&
                   <div className="blog__social">

@@ -45,6 +45,7 @@ export default function Hero() {
   const style = { "--slide-duration": 8 + "s" } as React.CSSProperties;
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isSliding, setIsSliding] = useState(false);
 
   const slideshow = useEffect(() => {
     const interval = setInterval(() => {
@@ -59,7 +60,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="hero">
+    <div className={`hero ${isSliding  ? "is-sliding" : ""}`}>
       {data && 
         <>
           <div className="hero__slides">
@@ -70,7 +71,7 @@ export default function Hero() {
                 }`}
                 key={index}
               >
-                <Image image={url + item.attributes.url} alt={item.attributes.alternativeText} />
+                <Image image={data && url +  item.attributes.url} alt={data ? item.attributes.alternativeText : "Úvodní fotka z festivalu v České Třebové"} />
               </div>
             ))}
           </div>
