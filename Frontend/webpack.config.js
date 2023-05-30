@@ -14,7 +14,7 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     styles: `./${config.src.styles}style.scss`,
     app: './src/index.tsx', // entry point for your React app
