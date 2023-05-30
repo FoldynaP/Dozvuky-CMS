@@ -60,5 +60,8 @@
     "webpack-dev-server": "^4.6.0",
     "webpack-import-glob-loader": "1.6.3",
     "webpack-merge": "^5.8.0"
+  },
+  "engines": {
+    "node": "18.16.0"
   }
 }
