@@ -8,7 +8,15 @@ module.exports = [
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
-  'strapi::public',
+  {
+    name: 'strapi::public',
+    config: {
+      path: './frontend/build',
+      static: {
+        maxAge: 60000,
+      },
+    },
+  },
   {
     name: 'strapi::security',
     config: {
