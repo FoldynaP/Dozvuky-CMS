@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "build:prod": "webpack --config config/webpack.prod.js",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "start":"webpack-serve"
   },
   "keywords": [],
   "author": "",
