@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "build:prod": "webpack --config config/webpack.prod.js",
     "dev": "webpack serve",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack serve"
   },
   "keywords": [],
   "author": "",
