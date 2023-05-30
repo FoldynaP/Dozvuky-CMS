@@ -1,0 +1,27 @@
+{
+    "routes": [
+      {
+        "method": "GET",
+        "path": "/",
+        "handler": "render",
+        "config": {
+          "policies": [],
+          "plugins": {
+            "static": {
+              "serveStatic": {
+                "directory": "../Frontend/dist",
+                "watch": true
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+  
+  
+  
+  
+  
+  
+  
