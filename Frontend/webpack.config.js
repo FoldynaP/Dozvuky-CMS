@@ -98,8 +98,8 @@ module.exports = {
       output: { filename: 'img/bg/icons-svg.svg' },
       sprite: { prefix: 'icon-' },
     }),
-    new iconSvgCssGeneratePluginBeforeRun(),
-    new iconSvgCssGeneratePlugin(),
+    //new iconSvgCssGeneratePluginBeforeRun(),
+    //new iconSvgCssGeneratePlugin(),
 
     new webpack.DefinePlugin({
       NODE_ENV: process.env.NODE_ENV,
