@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",
     "build:prod": "webpack --config config/webpack.prod.js",
-    "start": "npx webpack serve",
+    "start": "webpack serve",
     "dev": "webpack serve"
   },
   "keywords": [],
