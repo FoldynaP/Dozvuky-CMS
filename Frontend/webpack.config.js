@@ -14,7 +14,7 @@ const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
     styles: `./${config.src.styles}style.scss`,
     app: './src/index.tsx', // entry point for your React app
@@ -33,17 +33,17 @@ module.exports = {
     },
   },
   devtool: 'inline-source-map',
-  // devServer: {
-  //   static: {
-  //     directory: path.join(__dirname, 'dist'),
-  //   },
-  //   watchFiles: ['src/assets/**/*.scss'],
-  //   hot: true,
-  //   historyApiFallback: true,
-  //   devMiddleware: {
-  //     writeToDisk: true,
-  //   },
-  // },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    watchFiles: ['src/assets/**/*.scss'],
+    hot: true,
+    historyApiFallback: true,
+    devMiddleware: {
+      writeToDisk: true,
+    },
+  },
   watchOptions: {
     ignored: new RegExp('icons-svg.scss'),
   },
