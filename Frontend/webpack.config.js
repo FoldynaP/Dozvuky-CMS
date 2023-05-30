@@ -33,17 +33,17 @@ module.exports = {
     },
   },
   devtool: 'inline-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
-    watchFiles: ['src/assets/**/*.scss'],
-    hot: true,
-    historyApiFallback: true,
-    devMiddleware: {
-      writeToDisk: true,
-    },
-  },
+  // devServer: {
+  //   static: {
+  //     directory: path.join(__dirname, 'dist'),
+  //   },
+  //   watchFiles: ['src/assets/**/*.scss'],
+  //   hot: true,
+  //   historyApiFallback: true,
+  //   devMiddleware: {
+  //     writeToDisk: true,
+  //   },
+  // },
   watchOptions: {
     ignored: new RegExp('icons-svg.scss'),
   },
