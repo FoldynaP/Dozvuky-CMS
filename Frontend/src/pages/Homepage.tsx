@@ -20,7 +20,7 @@ interface FaqData {
 export default function Homepage() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const {loading: loadingBands, error: bandError, data: bandData} = useFetch(url + "/api/bands?populate=*");
-  const {loading: loadingNews, error: newsError, data: newsData} = useFetch(url + "/api/articles?populate=*");
+  const {loading: loadingNews, error: newsError, data: newsData} = useFetch("https://admin-dozvuky-leta.onrender.com/api/articles?populate=*");
 
   const { loading: loadingFaqs, error: faqsError, data: fetchFaqsData }: {
     loading: boolean;
