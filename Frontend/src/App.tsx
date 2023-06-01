@@ -30,7 +30,7 @@ interface countdownTypes {
 const url = process.env.REACT_APP_STRAPI_API_URL;
 //apollo client
 const client = new ApolloClient({
-  uri: url + "/graphql",
+  uri: "https://admin-dozvuky-leta.onrender.com" + "/graphql",
   cache: new InMemoryCache(),
 })
 
@@ -70,7 +70,7 @@ function ScrollToTop() {
 function App() {
   let targetDate: number | undefined;
   const url = process.env.REACT_APP_STRAPI_API_URL;
-  const { loading, error, data } = useFetch<countdownTypes>(url + "/api/countdown" + "?populate=*");
+  const { loading, error, data } = useFetch<countdownTypes>("https://admin-dozvuky-leta.onrender.com" + "/api/countdown" + "?populate=*");
   const date = data?.Date;
 
   if (date) {

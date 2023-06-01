@@ -32,9 +32,9 @@ export default function Novinky() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const location = useLocation();
   const { id } = location.state;
-  const { loading, error, data } = useFetch<NewsProps>(url + "/api/articles/" + id + "?populate=*");
+  const { loading, error, data } = useFetch<NewsProps>("https://admin-dozvuky-leta.onrender.com" + "/api/articles/" + id + "?populate=*");
   const breadcrumbs = [data?.Name]
-  const imageSources: string[] = data?.Gallery?.data.map((item: any) => url + item.attributes.url) || [];
+  const imageSources: string[] = data?.Gallery?.data.map((item: any) => item.attributes.url) || [];
 
   //Lightbox logic
 	const [lightboxController, setLightboxController] = useState({
@@ -96,7 +96,7 @@ export default function Novinky() {
                           {data.Gallery.data.map((item: any, index: number) => (
                             <div className="grid__col col-6-12@md">
                               <div className="blog__gallery-item" key={index} onClick={() => openLightboxOnSlide(index + 1)}>
-                                <Image image={url + item.attributes.url} alt={item.attributes.alternativeText} />
+                                <Image image={item.attributes.url} alt={item.attributes.alternativeText} />
                               </div>
                             </div>
                           ))}

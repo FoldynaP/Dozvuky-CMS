@@ -26,7 +26,7 @@ export default function Homepage() {
     loading: boolean;
     error: any;
     data: FaqData[] | null | undefined;
-  } = useFetch(url + "/api/faqs?populate=*");
+  } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/faqs?populate=*");
   
   // Handle the case when faqsData is null
   const faqsData: FaqData[] = fetchFaqsData || [];

@@ -26,7 +26,7 @@ export default function Tickets() {
         loading: boolean;
         error: any;
         data: ticketSection | null | undefined;
-    } = useFetch(url + "/api/ticket-section?populate=*");
+    } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/ticket-section?populate=*");
   return (
     <>
     {data && 

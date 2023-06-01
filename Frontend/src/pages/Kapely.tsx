@@ -9,7 +9,7 @@ import Loading from '../components/core/Loading';
 
 export default function Kapely() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
-  const { loading: loadingBands, error: bandError, data: bandData } = useFetch(url + "/api/bands?populate=*");
+  const { loading: loadingBands, error: bandError, data: bandData } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/bands?populate=*");
   const breadcrumbs = ["kapely"];
   const SEO_TITLE = "Dozvuky léta - Přehled Kapel";
   const SEO_DESCRIPTION = "Na stránce přehledu kapel si můžete prohlédnout co vás na letošním ročníku festivalu čeká. Pod peklák do České Třebové dorazí mnoho známých kapel.";

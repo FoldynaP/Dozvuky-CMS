@@ -10,7 +10,7 @@ export default function BandCard(props) {
   return (
     <Link to={`/kapely/` + path} state={{ id: props.data.id}} className="carousel-band__item">
         <div className={"carousel-band__img"}>
-            <Image image={ url + props.data.Image.data.attributes.url} alt={props.data.Image.data.attributes.alternativeText}/>
+            <Image image={ props.data.Image.data.attributes.url} alt={props.data.Image.data.attributes.alternativeText}/>
         </div>
         <div className="carousel-band__content">
             <h4 className="carousel-band__title">{props.data.Name}</h4>

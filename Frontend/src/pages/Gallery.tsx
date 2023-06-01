@@ -10,7 +10,7 @@ import Loading from '../components/core/Loading';
 
 export default function Gallery() {
 const url = process.env.REACT_APP_STRAPI_API_URL;
-const { loading: loadingGallery, error: galleryError, data: crossroadData } = useFetch(url + "/api/galleries?populate=*");
+const { loading: loadingGallery, error: galleryError, data: crossroadData } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/galleries?populate=*");
 const breadcrumbs = ["galerie"];
 const TITLE = "Dozvuky léta - Galerie";
 const DESCRIPTION = "Nahlédněte do fotogalerie festivalu dozvuky léta v České Třebové. Prohlédnout si můžete fotografie minulých ročníků";

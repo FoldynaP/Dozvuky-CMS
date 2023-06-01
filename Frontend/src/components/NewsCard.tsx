@@ -10,7 +10,7 @@ export default function newsCard(props) {
   return (
   <Link to={`/novinky/${path}`} state={ {id: props.data.id }} className="carousel-news__item">
     <div className="carousel-news__image">
-        <Image image={url + props.data.Preview.data.attributes.url} alt={props.data.Preview.data.attributes.alternativeText}></Image>
+        <Image image={props.data.Preview.data.attributes.url} alt={props.data.Preview.data.attributes.alternativeText}></Image>
     </div>
     <div className="carousel-news__content">
         <div className="carousel-news__top">

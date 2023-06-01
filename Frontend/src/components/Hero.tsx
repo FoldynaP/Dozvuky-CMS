@@ -21,7 +21,7 @@ interface HeroProps {
 
 export default function Hero() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
-  const { loading, error, data } = useFetch<HeroProps>(url + "/api/header-section" + "?populate=*");
+  const { loading, error, data } = useFetch<HeroProps>("https://admin-dozvuky-leta.onrender.com" + "/api/header-section" + "?populate=*");
   let SliderData = [] as SlideshowType[] | any;
   if (data) {
     SliderData = data.Slideshow.data;
@@ -71,7 +71,7 @@ export default function Hero() {
                 }`}
                 key={index}
               >
-                <Image image={data && url +  item.attributes.url} alt={data ? item.attributes.alternativeText : "Úvodní fotka z festivalu v České Třebové"} />
+                <Image image={data && item.attributes.url} alt={data ? item.attributes.alternativeText : "Úvodní fotka z festivalu v České Třebové"} />
               </div>
             ))}
           </div>
