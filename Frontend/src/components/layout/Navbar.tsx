@@ -30,7 +30,7 @@ export default function Navbar() {
             Kapely
             </Link>
             </li>
-            <li onClick={handleClick} className="header__item js-menu-link"><a href="/#listky" className="header__link">VstupenkyTEST</a></li>
+            <li onClick={handleClick} className="header__item js-menu-link"><a href="/#listky" className="header__link">Vstupenky</a></li>
             <li onClick={handleClick} className="header__item js-menu-link"><a href="/#novinky" className="header__link">Novinky</a></li>
             <li onClick={handleClick} className="header__item js-menu-link"><Link to="/galerie" className="header__link">Galerie</Link></li>
             <li onClick={handleClick} className="header__item js-menu-link"><a href="#informace" className="header__link">Informace</a></li>
