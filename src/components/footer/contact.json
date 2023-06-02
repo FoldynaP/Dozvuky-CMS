@@ -6,10 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "Contact": {
+    "Name": {
       "type": "string"
     },
-    "Name": {
+    "Contact": {
       "type": "string"
     },
     "Phone": {
