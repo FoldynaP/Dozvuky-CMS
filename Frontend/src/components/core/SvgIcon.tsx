@@ -12,7 +12,7 @@ export default function SvgIcon(props:svgIcon) {
             xmlnsXlink="http://www.w3.org/1999/xlink"
         >
             <use
-                xlinkHref={`../img/bg/icons-svg.svg#icon-${props.svgName}`}
+                xlinkHref={`../dist/img/bg/icons-svg.svg#icon-${props.svgName}`}
                 width="100%"
                 height="100%"
                 focusable="false"

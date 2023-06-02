@@ -1,16 +1,16 @@
 const path = require('path');
 const basePath = {
 	src: 'src/',
-	dest: 'dist/',
+	dest: 'dist',
 	assets: '../',
 };
 
 const src = {
-	fonts: `${basePath.src}/assets/fonts/`,
-	icons: `${basePath.src}/assets/img/bg/icons/`,
-	iconsSVG: `${basePath.src}/assets/img/bg/icons-svg/`,
-	images: `${basePath.src}/assets/img/`,
-	styles: `${basePath.src}/assets/css/`,
+	fonts: `${basePath.src}assets/fonts/`,
+	icons: `${basePath.src}assets/img/bg/icons/`,
+	iconsSVG: `${basePath.src}assets/img/bg/icons-svg/`,
+	images: `${basePath.src}assets/img/`,
+	styles: `${basePath.src}assets/css/`,
 };
 
 const twigNamespaces = {
