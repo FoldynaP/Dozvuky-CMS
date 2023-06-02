@@ -24,7 +24,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, `/dist`),
-    publicPath: "/dist/",
+    publicPath: "/dist",
     filename: './js/[name].js',
     chunkFilename: './js/[name].chunk.js',
     assetModuleFilename: (pathData) => {
