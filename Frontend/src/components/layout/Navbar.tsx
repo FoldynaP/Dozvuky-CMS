@@ -17,7 +17,7 @@ export default function Navbar() {
       <nav className="header__wrap">
         <div className="header__logo">
         <Link to="/">
-          <Image image="../img/illust/logo-test.png" alt="Logo" />
+          <Image image="../assets/img/illust/logo-test.png" alt="Logo" />
         </Link>
         </div>
         <div className="header__list-wrap">

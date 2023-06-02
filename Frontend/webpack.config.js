@@ -113,7 +113,7 @@ module.exports = {
       template: './src/index.html',
     }),
     new CopyPlugin({
-      patterns: [{ from: './src/assets/img', to: 'img' }],
+      patterns: [{ from: './src/assets/img', to: 'assets/img' }],
     }),
     new Dotenv({
       path: './.env', // Path to your .env file
