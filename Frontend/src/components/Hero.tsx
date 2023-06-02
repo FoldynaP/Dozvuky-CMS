@@ -23,7 +23,7 @@ export default function Hero() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const { loading, error, data } = useFetch<HeroProps>("https://admin-dozvuky-leta.onrender.com" + "/api/header-section" + "?populate=*");
   let SliderData = [] as SlideshowType[] | any;
-  if (data) {
+  if (data && data.Slideshow) {
     SliderData = data.Slideshow.data;
   }
   if (error) {
