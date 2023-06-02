@@ -59,8 +59,8 @@ $containerIndent: 20px;
 $footerspacing: 74px;
 
 // Paths
-$imgPath: map-get($paths, 'images');
-//$imgPath: '/dist/assets/img';
+//$imgPath: map-get($paths, 'images');
+$imgPath: '/dist/assets/img';
 $fontsPath: map-get($paths, 'fonts');
 
 // Transitions

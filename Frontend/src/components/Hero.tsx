@@ -29,16 +29,16 @@ export default function Hero() {
   if (error) {
     SliderData = [
         {
-          image: '../assets/img/illust/hero/hero1.webp',
+          image: '/dist/assets/img/illust/hero/hero1.webp',
         },
         {
-          image: '../assets/img/illust/hero/hero2.webp',
+          image: '/dist/assets/img/illust/hero/hero2.webp',
         },
         {
-          image: '../assets/img/illust/hero/hero3.webp',
+          image: '/dist//assets/img/illust/hero/hero3.webp',
         },
         {
-          image: '../assets/img/illust/hero/hero4.webp',
+          image: '/dist/assets/img/illust/hero/hero4.webp',
         },
       ];
   }

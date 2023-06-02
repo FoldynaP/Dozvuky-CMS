@@ -21,6 +21,11 @@ export default function Homepage() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const {loading: loadingBands, error: bandError, data: bandData} = useFetch("https://admin-dozvuky-leta.onrender.com/api/bands?populate=*");
   const {loading: loadingNews, error: newsError, data: newsData} = useFetch("https://admin-dozvuky-leta.onrender.com/api/articles?populate=*");
+  console.log(newsData)
+
+  if (Array.isArray(newsData)) {
+    newsData.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  }
 
   const { loading: loadingFaqs, error: faqsError, data: fetchFaqsData }: {
     loading: boolean;

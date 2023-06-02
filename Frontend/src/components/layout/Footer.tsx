@@ -57,7 +57,7 @@ export default function Footer() {
                     <div className="grid">
                         <div className="grid__col col-4-12@md">
                             <div className="footer__logo footer__logo--left">
-                                <Image image='../assets/img/illust/logo.png' alt="Logo spolku pro vás od nás"></Image>
+                                <Image image='/dist/assets/img/illust/logo.png' alt="Logo spolku pro vás od nás"></Image>
                             </div>
                         </div>
                         <div className="grid__col col-4-12@md">
@@ -76,7 +76,7 @@ export default function Footer() {
                         </div>
                         <div className="grid__col col-4-12@md">
                             <div className="footer__logo">
-                                <Image image='../assets/img/illust/logo-test.png' alt="Logo festivalu dozvuky léta"></Image>
+                                <Image image='/dist/assets/img/illust/logo-test.png' alt="Logo festivalu dozvuky léta"></Image>
                             </div>
                         </div>
                     </div>
