@@ -6,7 +6,7 @@ import SvgIcon from './core/SvgIcon'
 
 export default function newsCard(props) {
   const publishedDate = new Date(props.data.publishedAt);
-  const formatedDate = publishedDate.getDate() + "." + publishedDate.getMonth() + "." + publishedDate.getFullYear();
+  const formatedDate = publishedDate.getDate() + ". " + publishedDate.getMonth() + ". " + publishedDate.getFullYear();
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const path = accentTidy(props.data.Name);
   return (

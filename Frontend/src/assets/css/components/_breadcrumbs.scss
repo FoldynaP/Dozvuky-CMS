@@ -1,5 +1,5 @@
 .breadcrumbs {
-    padding-top: 40px;
+    padding-top: 30px;
     &__items {
         display: flex;
         align-items: center;
@@ -40,5 +40,8 @@
                 transform: rotate(30deg);
             }
         }
+    }
+    @media($mdUp) {
+        padding-top: 40px;
     }
 }

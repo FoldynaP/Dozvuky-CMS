@@ -9,6 +9,7 @@ export  const accentTidy = (string:string) => {
     r = r.replace(new RegExp(/ñ/g),"n");                
     r = r.replace(new RegExp(/[òóôõö]/g),"o");
     r = r.replace(new RegExp(/œ/g),"oe");
+    r = r.replace(new RegExp(/ř/g),"r");
     r = r.replace(new RegExp(/[ùúûüů]/g),"u");
     r = r.replace(new RegExp(/[ýÿ]/g),"y");
     r = r.replace(new RegExp(/\W/g),"");

@@ -5,6 +5,7 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 //components
 import Image from './core/Image';
 import Button from './core/Button';
+import Loading from './core/Loading';
 
 interface SlideshowType {
   data: any;
@@ -91,6 +92,11 @@ export default function Hero() {
           <div className="hero__timeline" style={style}></div>
           </>
         }
+    {loading && 
+      <div className='hero__loading'>
+          <Loading />
+      </div>
+    }
     {error &&
       <>
         <div className="hero__slides">

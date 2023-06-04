@@ -14,6 +14,7 @@ import GalleryDetail from './pages/GalleryDetail';
 
 //Components
 import CountDown from './components/CountDown';
+import ScrollTopBtn from './components/ScrollTopBtn';
 
 //layout
 import Navbar from './components/layout/Navbar';
@@ -101,6 +102,7 @@ function App() {
           {data?.Date && 
             <CountDown targetDate={targetDate} message={data?.Message}/>
           }
+          <ScrollTopBtn />
           <ScrollToTop />
         </div>
       </ApolloProvider>

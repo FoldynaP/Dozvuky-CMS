@@ -6,17 +6,17 @@
   },
   "options": {},
   "attributes": {
-    "Name": {
-      "type": "string"
-    },
-    "Contact": {
-      "type": "string"
-    },
     "Phone": {
       "type": "string"
     },
     "Email": {
       "type": "email"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Contact": {
+      "type": "string"
     }
   }
 }

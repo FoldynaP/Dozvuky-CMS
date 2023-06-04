@@ -11,6 +11,7 @@ import MainImage from '../components/MainImage';
 import Audio from '../components/Audio';
 import Iframe from '../components/Iframe';
 import BreadCrumbs from '../components/core/BreadCrumbs';
+import Parallax from '../components/core/Parallax';
 import Loading from '../components/core/Loading';
 import Error from '../components/core/Error';
 
@@ -44,6 +45,9 @@ export default function KapelaDetail() {
       <meta name="description" content={data?.SEO.Description} />
     </Helmet>
     }
+    <section className="section section-parallax">
+      <Parallax />
+    </section>
     <section className="section">
       <div className="container">
         <BreadCrumbs path={breadcrumbs} />

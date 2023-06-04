@@ -10,6 +10,7 @@ import Faq from '../components/Faq'
 import Loading from '../components/core/Loading';
 import Error from '../components/core/Error';
 import EmblaCarousel from '../components/EmblaCarousel'
+import Parallax from '../components/core/Parallax';
 
 interface FaqData {
   	id: number,
@@ -40,6 +41,9 @@ export default function Homepage() {
   return (
     <>
     <Hero/>
+    <section className="section section-parallax">
+      <Parallax />
+    </section>
     <section className="section section--top section--bottom">
       <div className="container">
       <Title title="Kapely" />

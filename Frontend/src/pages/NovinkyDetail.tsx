@@ -12,6 +12,7 @@ import MainImage from '../components/MainImage'
 import Iframe from '../components/Iframe';
 import Image from '../components/core/Image';
 import SvgIcon from '../components/core/SvgIcon';
+import Parallax from '../components/core/Parallax';
 import Loading from '../components/core/Loading';
 import Error from '../components/core/Error';
 
@@ -56,6 +57,9 @@ export default function Novinky() {
         <meta name="description" content={data?.SEO.Description} />
       </Helmet>
     }
+    <section className="section section-parallax">
+      <Parallax />
+    </section>
     <section className="section">
       <div className="container">
         <BreadCrumbs path={breadcrumbs} />
@@ -92,6 +96,7 @@ export default function Novinky() {
                     }
                     {data?.Gallery &&
                       <div className="blog__gallery">
+                        <h4>Galerie:</h4>
                         <div className="grid">
                           {data.Gallery.data.map((item: any, index: number) => (
                             <div className="grid__col col-6-12@md">
