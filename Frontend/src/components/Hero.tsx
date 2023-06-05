@@ -121,6 +121,7 @@ export default function Hero() {
         <div className="hero__timeline" style={style}></div>
       </>
     }
+      <a href="#introduction" className="hero__continue"><span className='hero__continue-inner'></span></a>
     </div>
   </>
   );

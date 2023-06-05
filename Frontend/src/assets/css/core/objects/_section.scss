@@ -1,7 +1,7 @@
 .section {
 	position: relative;
 	&--top {
-		padding-top: 60px;
+		padding-top: 80px;
 	}
 	&--top-lg {
 		padding-top: 120px;
@@ -22,9 +22,6 @@
 	z-index: 1;
 	}
 	@media ($xlUp) {
-		&--top {
-			padding-top: 80px;
-		}
 		&--top-lg {
 			padding-top: 160px;
 		}
