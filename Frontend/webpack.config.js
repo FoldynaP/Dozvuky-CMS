@@ -115,9 +115,6 @@ module.exports = {
     new CopyPlugin({
       patterns: [{ from: './src/assets/img', to: 'assets/img' }],
     }),
-    new Dotenv({
-      path: './.env', // Path to your .env file
-      safe: true,
-    }),
+    new Dotenv(),
   ],
 };
