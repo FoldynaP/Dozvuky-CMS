@@ -10,16 +10,19 @@
 		margin-bottom: 60px;
 	}
 	&--bg {
-	position: unset;
-    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)),
-    url($imgPath + '/illust/bg/publikum.jpg');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: top;
-	//box-shadow: 0px 0px 9px 0px rgba(92,92,92,1);
-	padding-top: 60px;
-	padding-bottom: 60px;
-	z-index: 1;
+		position: unset;
+		background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.8)),
+		url($imgPath + '/illust/bg/publikum.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: top;
+		padding-top: 60px;
+		padding-bottom: 60px;
+		z-index: 1;
+		@supports (-webkit-touch-callout: none) {
+			background-attachment: scroll;
+			background-position: left;
+		}
 	}
 	@media ($xlUp) {
 		&--top-lg {

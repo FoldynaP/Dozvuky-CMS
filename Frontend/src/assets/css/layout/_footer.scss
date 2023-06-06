@@ -7,6 +7,10 @@
     z-index: 2;
     // background-color: #3333;
     padding: 40px 0;
+    @supports (-webkit-touch-callout: none) {
+        background-attachment: unset;
+        background-position: right;
+    }
     h4 {
         font-size: 20px;
     }
