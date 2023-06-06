@@ -9,6 +9,7 @@ interface CrossRoadProps {
     id: number;
     Name: string;
     Description?: string;
+    MainImage?: any;
     Image?: any;
     preview?: any,
     createdAt: string;
@@ -42,7 +43,7 @@ export default function CrossRoad({ crossroadData, gallery }: CrossRoadProps) {
         :
         <Link to={`/kapely/${path}`}  state={{ id: crossroadData.id }} className="crossroad">
           <div className="crossroad__img">
-            <Image image={crossroadData.Image.data.attributes.url} alt={crossroadData.Image.data.attributes.alternativeText} />
+            <Image image={crossroadData.MainImage.data.attributes.url} alt={crossroadData.MainImage.data.attributes.alternativeText} />
           </div>
           <div className="crossroad__content">
             <h4 className="crossroad__title">
