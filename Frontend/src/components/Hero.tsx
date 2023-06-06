@@ -58,7 +58,6 @@ export default function Hero() {
   }, [SliderData.length]);
 
   const timeline = useEffect(() => {
-    console.log("měním")
     setIsSliding(false);
     setTimeout(() => {
       setIsSliding(true)
