@@ -22,7 +22,7 @@ interface BandProps {
     MainImage?: any,
     blogText: any,
     SEO?: any,
-    mp3?: string,
+    mp3?: any,
     video?: string,
     instagram?: string,
     facebook?: string,
@@ -33,8 +33,7 @@ export default function KapelaDetail() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const location = useLocation();
   const { id } = location.state;
-  const { loading, error, data } = useFetch<BandProps>("https://admin-dozvuky-leta.onrender.com" + "/api/bands/" + id + "?populate=*");
-
+  const { loading, error, data } = useFetch<BandProps>("http://localhost:1337" + "/api/bands/" + id + "?populate=*");
   const breadcrumbs = ["kapely", data?.Name]
 
   return (
@@ -77,7 +76,7 @@ export default function KapelaDetail() {
                       {data?.mp3 &&
                         <div className="blog__section">
                             <h4>Ukázka z tvorby:</h4>
-                            <Audio src={data.mp3}/>                   
+                            <Audio src={data.mp3.data.attributes.url}/>                   
                         </div>
                       }
                       {data?.video &&

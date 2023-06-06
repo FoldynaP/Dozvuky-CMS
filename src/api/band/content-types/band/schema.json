@@ -35,9 +35,6 @@
     "blogText": {
       "type": "richtext"
     },
-    "mp3": {
-      "type": "string"
-    },
     "video": {
       "type": "string"
     },
@@ -63,6 +60,13 @@
         "videos",
         "audios"
       ]
+    },
+    "mp3": {
+      "allowedTypes": [
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
