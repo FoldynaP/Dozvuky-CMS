@@ -33,8 +33,8 @@ export default function Navbar() {
             <li onClick={handleClick} className="header__item js-menu-link"><a href="/#listky" className="header__link">Vstupenky</a></li>
             <li onClick={handleClick} className="header__item js-menu-link"><a href="/#novinky" className="header__link">Novinky</a></li>
             <li onClick={handleClick} className="header__item js-menu-link"><Link to="/galerie" className="header__link">Galerie</Link></li>
-            <li onClick={handleClick} className="header__item js-menu-link"><a href="#informace" className="header__link">Informace</a></li>
-            <li onClick={handleClick} className="header__item js-menu-link"><a href="#kontakty" className="header__link">Kontakty</a></li>
+            <li onClick={handleClick} className="header__item js-menu-link"><a href="/#informace" className="header__link">Informace</a></li>
+            <li onClick={handleClick} className="header__item js-menu-link"><a href="/#kontakty" className="header__link">Kontakty</a></li>
           </ul>
         </div>
         <button onClick={handleClick} type="button" className={"header__toggle " + (menuActive && "menu-open")} aria-label="Menu ">

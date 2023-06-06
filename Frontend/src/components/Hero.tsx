@@ -46,7 +46,7 @@ export default function Hero() {
   const style = { "--slide-duration": 8 + "s" } as React.CSSProperties;
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isSliding, setIsSliding] = useState(false);
+  const [isSliding, setIsSliding] = useState(true);
 
   const slideshow = useEffect(() => {
     const interval = setInterval(() => {
@@ -56,6 +56,14 @@ export default function Hero() {
     }, 8000);
     return () => clearInterval(interval);
   }, [SliderData.length]);
+
+  const timeline = useEffect(() => {
+    console.log("měním")
+    setIsSliding(false);
+    setTimeout(() => {
+      setIsSliding(true)
+    },10)
+  },[activeIndex])
 
   
 

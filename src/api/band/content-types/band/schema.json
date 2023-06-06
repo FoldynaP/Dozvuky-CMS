@@ -21,7 +21,7 @@
       "type": "text",
       "maxLength": 280
     },
-    "Image": {
+    "MainImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -52,6 +52,17 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "PreviewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

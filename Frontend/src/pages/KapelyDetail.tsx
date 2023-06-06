@@ -19,7 +19,7 @@ interface BandProps {
     id: number,
     Name: string,
     Description?: string,
-    Image?: any,
+    MainImage?: any,
     blogText: any,
     SEO?: any,
     mp3?: string,
@@ -60,7 +60,7 @@ export default function KapelaDetail() {
       <>
       <section className="section">
         <div className="container">
-          <MainImage image={data?.Image.data.attributes.url} imageAlt={data?.Image.data.attributes.alternativeText} title={data?.Name} />
+          <MainImage image={data?.MainImage.data.attributes.url} imageAlt={data?.MainImage.data.attributes.alternativeText} title={data?.Name} />
         </div>
       </section>
       <section className="section section--top section--bottom">
