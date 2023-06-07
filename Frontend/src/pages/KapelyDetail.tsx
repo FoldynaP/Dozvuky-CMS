@@ -73,7 +73,7 @@ export default function KapelaDetail() {
                     :
                     <p>Text kapely pro vás připravujeme :-)</p>
                     }
-                      {data?.mp3 &&
+                      {data?.mp3.data &&
                         <div className="blog__section">
                             <h4>Ukázka z tvorby:</h4>
                             <Audio src={data.mp3.data.attributes.url}/>                   
