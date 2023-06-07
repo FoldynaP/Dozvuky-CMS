@@ -88,7 +88,7 @@ export default function KapelaDetail() {
                         </div>
                       }
                   </div>
-                  {(data?.instagram || data?.facebook) &&
+                  {(data?.instagram || data?.facebook || data?.youtube) &&
                   <div className="blog__social">
                       <span>Sociální sítě:</span>
                       {data?.facebook &&
