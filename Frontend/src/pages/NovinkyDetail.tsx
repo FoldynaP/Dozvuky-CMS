@@ -35,7 +35,7 @@ export default function Novinky() {
   const { id } = location.state;
   const { loading, error, data } = useFetch<NewsProps>("https://admin-dozvuky-leta.onrender.com" + "/api/articles/" + id + "?populate=*");
   const breadcrumbs = [data?.Name]
-  const imageSources: string[] = data?.Gallery?.data.map((item: any) => item.attributes.url) || [];
+  const imageSources: string[] = data?.Gallery?.data?.map((item: any) => item.attributes.url) || [];
 
   //Lightbox logic
 	const [lightboxController, setLightboxController] = useState({
@@ -72,7 +72,9 @@ export default function Novinky() {
       <>
       <section className="section">
         <div className="container">
+          {data?.Detail?.data?.attributes?.url && 
           <MainImage image={data?.Detail.data.attributes.url} title={data?.Name} imageAlt={data?.Detail.data.attributes.alternativeText}/>
+          }
         </div>
       </section>
       <section className="section section--top section--bottom">
@@ -94,7 +96,7 @@ export default function Novinky() {
                         </div>
                       </div>
                     }
-                    {data?.Gallery &&
+                    {data?.Gallery?.data &&
                       <div className="blog__gallery">
                         <h4>Galerie:</h4>
                         <div className="grid">
@@ -105,11 +107,13 @@ export default function Novinky() {
                               </div>
                             </div>
                           ))}
+                          {imageSources.length &&
                           <FsLightbox
                             toggler={lightboxController.toggler}
                             sources={imageSources}
                             slide={lightboxController.slide}
                           />
+                          }
                         </div>
                       </div>
                     }

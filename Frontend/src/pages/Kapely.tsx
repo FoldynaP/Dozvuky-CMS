@@ -24,26 +24,28 @@ export default function Kapely() {
         <BreadCrumbs path={breadcrumbs} />
         </div>
       </section>
-      <section className="section section--top section--bottom">
-        <div className="container">
-          <Title title="Kapely"></Title>
-          {loadingBands &&
-            <Loading />
-          }
-          {Array.isArray(bandData) && (
-            <div className="grid grid--center">
-              {bandData.map((data: any, index: number) => (
-                <div className="grid__col col-6-12@sm" key={index}>
-                  <CrossRoad crossroadData={data} />
-                </div>
-              ))}
-            </div>
-          )}
-          {bandError && 
-            <Error />
-          }
-        </div>
-      </section>
+      {bandData && 
+        <section className="section section--top section--bottom">
+          <div className="container">
+            <Title title="Kapely"></Title>
+            {loadingBands &&
+              <Loading />
+            }
+            {Array.isArray(bandData) && (
+              <div className="grid grid--center">
+                {bandData.map((data: any, index: number) => (
+                  <div className="grid__col col-6-12@sm" key={index}>
+                    <CrossRoad crossroadData={data} />
+                  </div>
+                ))}
+              </div>
+            )}
+            {bandError && 
+              <Error />
+            }
+          </div>
+        </section>
+      }
     </>
   );
 }

@@ -2,7 +2,7 @@
     position: fixed;
     width: 100%;
     bottom: 0;
-    z-index: 10;
+    z-index: 100;
     background-color: $colorSecondary;
     padding: 40px;
     color: $colorWhite;
@@ -66,8 +66,8 @@
     }
     &__close {
         position: absolute;
-        right: 30px;
-        top: 20px;
+        right: 20px;
+        top: 10px;
         cursor: pointer;
         & .icon-svg--cancel {
             width: 20px;
