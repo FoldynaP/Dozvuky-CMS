@@ -7,25 +7,29 @@ import Image from './core/Image';
 import Button from './core/Button';
 import Loading from './core/Loading';
 
-interface SlideshowType {
+type SlideshowType = {
   data: any;
 }
 
-interface HeroProps {
-  id: number;
-  Title: string;
-  Annotation: string;
-  Slideshow: {
-    data: SlideshowType[];
-  };
+type HeroProps = {
+  heroData: {
+    id: number;
+    Title: string;
+    Annotation: string;
+    Slideshow: {
+      data: SlideshowType[];
+    };
+  },
+  error: any,
+  loading: boolean
 }
 
-export default function Hero() {
+const Hero: React.FC<HeroProps> = ({heroData, error, loading})=> {
   const url = process.env.REACT_APP_STRAPI_API_URL;
-  const { loading, error, data } = useFetch<HeroProps>("https://admin-dozvuky-leta.onrender.com" + "/api/header-section" + "?populate=*");
+  // const { loading, error, data } = useFetch<HeroProps>("https://admin-dozvuky-leta.onrender.com" + "/api/header-section" + "?populate=*", "hero");
   let SliderData = [] as SlideshowType[] | any;
-  if (data && data.Slideshow) {
-    SliderData = data.Slideshow.data;
+  if (heroData && heroData.Slideshow) {
+    SliderData = heroData.Slideshow.data;
   }
   if (error) {
     SliderData = [
@@ -69,7 +73,7 @@ export default function Hero() {
   return (
     <>
     <div className={`hero ${isSliding  ? "is-sliding" : ""}`}>
-      {data && 
+      {heroData && 
         <>
           <div className="hero__slides">
             {SliderData.map((item: any, index: number) => (
@@ -79,18 +83,18 @@ export default function Hero() {
                 }`}
                 key={index}
               >
-                <Image image={data && item.attributes.url} alt={data ? item.attributes.alternativeText : "Úvodní fotka z festivalu v České Třebové"} />
+                <Image image={heroData && item.attributes.url} alt={heroData ? item.attributes.alternativeText : "Úvodní fotka z festivalu v České Třebové"} />
               </div>
             ))}
           </div>
           <div className="hero__content">
-            {data && data.Title &&
-            <h1 className="hero__title">{data.Title}</h1>
+            {heroData && heroData.Title &&
+            <h1 className="hero__title">{heroData.Title}</h1>
             }
-            {data && data.Annotation &&
+            {heroData && heroData.Annotation &&
               <h4 className="hero__annot">
                 <ReactMarkdown className="rich-text">
-                  {data.Annotation}
+                  {heroData.Annotation}
                 </ReactMarkdown>
               </h4>
             }
@@ -133,3 +137,5 @@ export default function Hero() {
   </>
   );
 }
+
+export default React.memo(Hero);

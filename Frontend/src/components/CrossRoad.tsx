@@ -29,22 +29,26 @@ export default function CrossRoad({ crossroadData, gallery }: CrossRoadProps) {
   return (
     <>
       {gallery == true ? 
-                <Link to={`/galerie/${path}`}  state={{ id: crossroadData.id }} className="crossroad">
-                <div className="crossroad__img">
-                  <Image image={crossroadData.preview.data.attributes.url} alt={crossroadData.preview.data.attributes.alternativeText} />
-                </div>
-                <div className="crossroad__content">
-                  <h4 className="crossroad__title">
-                    {crossroadData.Name}&nbsp;
-                    <SvgIcon svgName={"back"} />
-                  </h4>
-                </div>
-              </Link>
+        <Link to={`/galerie/${path}`}  state={{ id: crossroadData.id }} className="crossroad">
+          {crossroadData?.preview?.data?.attributes?.url && 
+          <div className="crossroad__img">
+            <Image image={crossroadData.preview.data.attributes.url} alt={crossroadData.preview.data.attributes.alternativeText} />
+          </div>
+          }
+          <div className="crossroad__content">
+            <h4 className="crossroad__title">
+              {crossroadData.Name}&nbsp;
+              <SvgIcon svgName={"back"} />
+            </h4>
+          </div>
+        </Link>
         :
         <Link to={`/kapely/${path}`}  state={{ id: crossroadData.id }} className="crossroad">
+          {crossroadData?.MainImage?.data?.attributes?.url && 
           <div className="crossroad__img">
-            <Image image={crossroadData.MainImage.data.attributes.url} alt={crossroadData.MainImage.data.attributes.alternativeText} />
+            <Image image={crossroadData?.MainImage?.data?.attributes?.url} alt={crossroadData?.MainImage?.data?.attributes?.alternativeText} />
           </div>
+          }
           <div className="crossroad__content">
             <h4 className="crossroad__title">
               {crossroadData.Name}&nbsp;

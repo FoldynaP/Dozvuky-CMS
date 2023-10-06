@@ -22,7 +22,7 @@ export default function GalleryDetail() {
     const location = useLocation();
     const { id } = location.state;
     const url = process.env.REACT_APP_STRAPI_API_URL;
-    const { loading, error, data } = useFetch<galleryItemProps>("https://admin-dozvuky-leta.onrender.com" + "/api/galleries/" + id + "?populate=*");
+    const { loading, error, data } = useFetch<galleryItemProps>("https://admin-dozvuky-leta.onrender.com" + "/api/galleries/" + id + "?populate=*", "gallery-detail");
     const breadcrumbs = ["galerie", data?.Name]
     const imageSources: string[] = data?.images?.data.map((item: any) => item.attributes.url) || [];
 

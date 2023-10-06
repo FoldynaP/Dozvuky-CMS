@@ -33,7 +33,7 @@ export default function Novinky() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const location = useLocation();
   const { id } = location.state;
-  const { loading, error, data } = useFetch<NewsProps>("https://admin-dozvuky-leta.onrender.com" + "/api/articles/" + id + "?populate=*");
+  const { loading, error, data } = useFetch<NewsProps>("https://admin-dozvuky-leta.onrender.com" + "/api/articles/" + id + "?populate=*", "novinky-detail");
   const breadcrumbs = [data?.Name]
   const imageSources: string[] = data?.Gallery?.data?.map((item: any) => item.attributes.url) || [];
 

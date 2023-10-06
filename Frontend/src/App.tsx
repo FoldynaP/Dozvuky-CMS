@@ -71,7 +71,7 @@ function ScrollToTop() {
 function App() {
   let targetDate: number | undefined;
   const url = process.env.REACT_APP_STRAPI_API_URL;
-  const { loading, error, data } = useFetch<countdownTypes>("https://admin-dozvuky-leta.onrender.com" + "/api/countdown" + "?populate=*");
+  const { loading, error, data } = useFetch<countdownTypes>("https://admin-dozvuky-leta.onrender.com" + "/api/countdown" + "?populate=*", "App");
   const date = data?.Date;
 
   if (date) {

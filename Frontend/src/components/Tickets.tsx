@@ -20,13 +20,13 @@ interface ticketSection {
     TicketSteps: any
 }
 
-export default function Tickets() {
+const Tickets = () => {
     const url = process.env.REACT_APP_STRAPI_API_URL;
     const { loading, error, data } : {
         loading: boolean;
         error: any;
         data: ticketSection | null | undefined;
-    } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/ticket-section?populate=*");
+    } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/ticket-section?populate=*", "tickets");
   return (
     <>
     {data && 
@@ -72,3 +72,5 @@ export default function Tickets() {
     </>
   )
 }
+
+export default React.memo(Tickets);

@@ -27,8 +27,8 @@ interface FooterSection {
 
 export default function Footer() {
     const url = process.env.REACT_APP_STRAPI_API_URL;
-    const { loading: loadingContact, error: errorContact, data: contactData } = useFetch<FooterSection>("https://admin-dozvuky-leta.onrender.com" + "/api/footer-section?populate=*");
-    const { loading, error, data } = useFetch<SponsorsType>("https://admin-dozvuky-leta.onrender.com" + "/api/sponsors?populate=*");
+    const { loading: loadingContact, error: errorContact, data: contactData } = useFetch<FooterSection>("https://admin-dozvuky-leta.onrender.com" + "/api/footer-section?populate=*", "footer");
+    const { loading, error, data } = useFetch<SponsorsType>("https://admin-dozvuky-leta.onrender.com" + "/api/sponsors?populate=*", "footer");
 
   return (
     <footer className="footer">

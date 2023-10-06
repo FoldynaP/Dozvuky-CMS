@@ -33,7 +33,7 @@ export default function KapelaDetail() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
   const location = useLocation();
   const { id } = location.state;
-  const { loading, error, data } = useFetch<BandProps>("https://admin-dozvuky-leta.onrender.com" + "/api/bands/" + id + "?populate=*");
+  const { loading, error, data } = useFetch<BandProps>("https://admin-dozvuky-leta.onrender.com" + "/api/bands/" + id + "?populate=*", "kapely-detail");
   const breadcrumbs = ["kapely", data?.Name]
 
   return (
@@ -57,11 +57,13 @@ export default function KapelaDetail() {
     }
     {data && 
       <>
+      {data?.MainImage?.data?.attributes?.url && 
       <section className="section">
         <div className="container">
-          <MainImage image={data?.MainImage.data.attributes.url} imageAlt={data?.MainImage.data.attributes.alternativeText} title={data?.Name} />
+          <MainImage image={data?.MainImage?.data?.attributes?.url} imageAlt={data?.MainImage?.data?.attributes?.alternativeText} title={data?.Name} />
         </div>
       </section>
+      }
       <section className="section section--top section--bottom">
           <div className="container">
               <div className="blog">
@@ -73,7 +75,7 @@ export default function KapelaDetail() {
                     :
                     <p>Text kapely pro vás připravujeme :-)</p>
                     }
-                      {data?.mp3.data &&
+                      {data?.mp3?.data?.attributes?.url &&
                         <div className="blog__section">
                             <h4>Ukázka z tvorby:</h4>
                             <Audio src={data.mp3.data.attributes.url}/>                   

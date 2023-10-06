@@ -33,7 +33,7 @@ function sanitizeApiResponse<T>(response: any): T | undefined {
 }
 
 // Hook for fetching data from strapi
-const useFetch = <T>(url: string): FetchState<T> => {
+const useFetch = <T>(url: string, component: string): FetchState<T> => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);

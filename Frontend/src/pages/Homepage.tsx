@@ -11,6 +11,7 @@ import Loading from '../components/core/Loading';
 import Error from '../components/core/Error';
 import EmblaCarousel from '../components/EmblaCarousel'
 import Parallax from '../components/core/Parallax';
+import { HeroData } from '../types/HeroData';
 
 interface FaqData {
   	id: number,
@@ -23,8 +24,9 @@ interface BandData {
 
 export default function Homepage() {
   const url = process.env.REACT_APP_STRAPI_API_URL;
-  const { loading: loadingBands, error: bandError, data: bandData } = useFetch("https://admin-dozvuky-leta.onrender.com/api/bands?populate=*");
-  const {loading: loadingNews, error: newsError, data: newsData} = useFetch("https://admin-dozvuky-leta.onrender.com/api/articles?populate=*");
+  const { loading: loadingBands, error: bandError, data: bandData } = useFetch("https://admin-dozvuky-leta.onrender.com/api/bands?populate=*", "homepage");
+  const {loading: loadingNews, error: newsError, data: newsData} = useFetch("https://admin-dozvuky-leta.onrender.com/api/articles?populate=*", "homepage");
+  const { loading: loadingHero, error: heroError, data: heroData } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/header-section" + "?populate=*", "Hero");
   
   if (Array.isArray(newsData)) {
     newsData.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
@@ -35,7 +37,7 @@ export default function Homepage() {
     loading: boolean;
     error: any;
     data: FaqData[] | null | undefined;
-  } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/faqs?populate=*");
+  } = useFetch("https://admin-dozvuky-leta.onrender.com" + "/api/faqs?populate=*", "homepage");
   
   // Handle the case when faqsData is null
   const faqsData: FaqData[] = fetchFaqsData || [];
@@ -43,7 +45,7 @@ export default function Homepage() {
   const OPTIONS: EmblaOptionsType = {loop:true, align: "start"}
   return (
     <>
-    <Hero/>
+    <Hero heroData={heroData as HeroData} error={heroError} loading={loadingHero} />
     <section className="section section-parallax">
       <Parallax />
     </section>
